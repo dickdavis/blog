@@ -1,0 +1,17 @@
+*.rbc
+capybara-*.html
+.rspec
+/log
+/tmp
+/public/system
+/coverage/
+/spec/tmp
+**.orig
+rerun.txt
+pickle-email-*.html
+config/initializers/secret_token.rb
+dotenv
+.env
+/.bundle
+/vendor/bundle
+.byebug_history
