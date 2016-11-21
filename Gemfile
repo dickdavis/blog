@@ -9,6 +9,13 @@ gem 'pg'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Use Twitter Bootstrap
+gem 'bootstrap', '~> 4.0.0.alpha5'
+# Use Tether for Bootstrap component positioning
+source 'https://rails-assets.org' do
+    gem 'rails-assets-tether', '>= 1.1.0'
+end
+# Use HAML instead of ERB
 gem 'haml-rails', '~> 0.9'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
