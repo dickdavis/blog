@@ -3,7 +3,7 @@ footer {
     width: 100%;
     height: 250px;
 
-    .container {
+    .container-fluid {
         width: 100%;
         margin: 0;
         padding: 1em;
@@ -22,13 +22,13 @@ footer {
             }
         }
         #footer-icons {
-            margin: 1em 0 1em 0;
             .footer-icon {
+                padding: 1em;
                 text-align: center;
                 a {
                     color: $three;
                     &:hover {
-                      color: $one;
+                        color: $one;
                     }
                 }
             }
