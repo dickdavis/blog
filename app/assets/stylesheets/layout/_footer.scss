@@ -1,0 +1,45 @@
+footer {
+    margin-top: 1em;
+    width: 100%;
+    height: 250px;
+
+    .container {
+        width: 100%;
+        margin: 0;
+        padding: 1em;
+        background-color: $five;
+        #footer-heading {
+            margin: 1em 0 1em 0;
+            h2 {
+                color: $one;
+                text-align: center;
+            }
+        }
+        #footer-break {
+            .my-2 {
+                width: 50%;
+                background-color: $two;
+            }
+        }
+        #footer-icons {
+            margin: 1em 0 1em 0;
+            .footer-icon {
+                text-align: center;
+                a {
+                    color: $three;
+                    &:hover {
+                      color: $one;
+                    }
+                }
+            }
+        }
+        #footer-copyright {
+            p {
+                margin: 2em 1em 0 0;
+                text-align: right;
+                font-size: 90%;
+                color: $two;
+            }
+        }
+    }
+}

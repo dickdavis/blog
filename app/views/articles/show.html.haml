@@ -1,6 +1,23 @@
-%p
-  %strong Title:
-  = @article.title
-%p
-  %strong Text:
-  = @article.text
+.container
+  %div{ class: 'col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2' }
+    %h1= @article.title
+    %p= @article.text
+    %p
+      %a{ rel: 'license', href: 'http://creativecommons.org/licenses/by-sa/4.0/' }
+        %img{ alt: 'Creative Commons License', style: 'border-width:0', src: 'https://i.creativecommons.org/l/by-sa/4.0/88x31.png' }
+      %br
+      %span{ 'xmlns:dct': 'http://purl.org/dc/terms/', property: 'dct:title' }= @article.title
+      by
+      %a{ 'xmlns:cc': 'http://creativecommons.org/ns#', href: 'http://www.rvdavis.me/', property: 'cc:attributionName', rel: 'cc:attributionURL' } Richard Davis
+      is licensed under a
+      %a{ rel: 'license', href: 'http://creativecommons.org/licenses/by-sa/4.0/' }
+        Creative Commons Attribution-ShareAlike 4.0 International License.
+    = link_to 'Edit', edit_article_path(@article)
+    %br
+    = link_to 'Back', articles_path
+  %div{ class: 'col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2' }
+    %h2 Comments
+    = render @article.comments
+  %div{ class: 'col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2' }
+    %h2 Add a Comment
+    = render 'comments/form'

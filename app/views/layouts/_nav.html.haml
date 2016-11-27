@@ -1,0 +1,20 @@
+%nav
+  #nav-header
+    %a{ href: '', id: 'nav-toggle' }
+      = icon 'bars'
+    = link_to 'Richard Davis', { controller: 'welcome' }, class: 'navbar-text'
+  #nav-menu
+    %ul
+      %li
+        = form_for(articles_path, method: 'get', id: 'nav-search') do |f|
+          =f.text_field :search, placeholder: 'Search articles...', class: 'form-control', id: 'nav-search-box'
+          =f.submit 'Search', class: 'btn btn-primary'
+          %br
+      %li
+        = link_to 'Articles', { controller: 'articles' }, class: 'nav-link'
+      %li
+        = link_to 'Projects', { controller: 'welcome' }, class: 'nav-link'
+      %li
+        = link_to 'Resume', { controller: 'welcome' }, class: 'nav-link'
+      %li
+        = link_to 'Contact', { controller: 'welcome' }, class: 'nav-link'

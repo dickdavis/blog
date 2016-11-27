@@ -16,3 +16,11 @@
 //= require tether
 //= require bootstrap
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  $('#nav-toggle').on('click', function(e) {
+    e.preventDefault();
+    // ...nav class is set to open
+    $('#nav-menu').toggleClass('open-menu');
+  });
+})

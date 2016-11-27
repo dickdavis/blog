@@ -1,0 +1,23 @@
+%footer.footer
+  .container
+    .row#footer-heading
+      %div{ class: 'col-lg-12' }
+        %h2 Connect with Richard
+    .row#footer-break
+      %div{ class: 'col-lg-12' }
+        %hr{ class: 'my-2' }
+    .row#footer-icons
+      %div{ class: 'col-lg-3 footer-icon' }
+        %a{ href: 'https://github.com/d3d1rty' }
+          = icon('github', class: 'fa-4x')
+      %div{ class: 'col-lg-3 footer-icon' }
+        %a{ href: 'https://stackoverflow.com/users/5886961/richard-davis?tab=profile' }
+          = icon('stack-overflow', class: 'fa-4x')
+      %div{ class: 'col-lg-3 footer-icon' }
+        %a{ href: 'https://news.ycombinator.com/user?id=rvdavis' }
+          = icon('hacker-news', class: 'fa-4x')
+      %div{ class: 'col-lg-3 footer-icon' }
+        %a{ href: 'https://www.linkedin.com/in/rvdavis' }
+          = icon('linkedin', class: 'fa-4x')
+    .row#footer-copyright
+      %p &copy; Copyright 2016 Richard Davis

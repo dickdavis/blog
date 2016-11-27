@@ -1,0 +1,92 @@
+// ======================
+//  Nav
+// ======================
+
+//  Style for menu
+// ======================
+
+nav {
+    #nav-header {
+        width: 100%;
+        background-color: $five;
+        margin: 0;
+        padding: 0;
+        a {
+            font-size: 150%;
+            color: $one;
+            padding: .5em;
+            text-decoration: none;
+        }
+        a.navbar-text {
+          color: $one;
+          font-size: 150%;
+        }
+    }
+    #nav-menu {
+        z-index: 9;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        background-color: $five;
+        transform: translateX(-200%);
+        transition: transform .6s ease;
+        @include media-breakpoint-up(xs) {
+            width: 100%;
+        }
+        @include media-breakpoint-up(sm) {
+            width: 75%;
+        }
+        @include media-breakpoint-up(md) {
+            width: 50%;
+        }
+        @include media-breakpoint-up(lg) {
+            width: 35%;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            li {
+                form {
+                    vertical-align: center;
+                    display: block;
+                    padding: .5em;
+                    input[type="text"] {
+                        float: left;
+                        width: 75%;
+                    }
+                    input[type="submit"] {
+                        width: 25%;
+                        float: right;
+                    }
+                }
+                br {
+                    clear: both;
+                }
+                a {
+                    padding-top: 1em;
+                    padding-bottom: 1em;
+                    display: block;
+                    font-size: 125%;
+                    text-decoration: none;
+                    color: $one;
+                    &:hover {
+                        color: $five;
+                        background-color: $two;
+                    }
+                    &:active {
+                        color: $one;
+                        background-color: $one;
+                    }
+                }
+            }
+            .active {
+                color: $one;
+                background-color: $one;
+            }
+        }
+    }
+    #nav-menu.open-menu {
+        transform: translateX(0);
+    }
+}

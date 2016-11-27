@@ -15,6 +15,8 @@ gem 'bootstrap', '~> 4.0.0.alpha5'
 source 'https://rails-assets.org' do
     gem 'rails-assets-tether', '>= 1.1.0'
 end
+# Use Font Awesome for iconography
+gem 'font-awesome-sass'
 # Use HAML instead of ERB
 gem 'haml-rails', '~> 0.9'
 # Use Uglifier as compressor for JavaScript assets
