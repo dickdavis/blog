@@ -3,18 +3,26 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @page = { title: 'Articles',
+              subtitle: 'Helpful snippets of advice for fellow Rubyists and others.' }
   end
 
   def show
     @article = Article.find(params[:id])
+    @page = { title: @article.title,
+              subtitle: @article.subtitle }
   end
 
   def new
     @article = Article.new
+    @page = { title: 'Create Article',
+              subtitle: 'Art is never finished, only abandoned.' }
   end
 
   def edit
     @article = Article.find(params[:id])
+    @page = { title: 'Edit Article',
+              subtitle: 'We all look so perfect, as we all fall down.' }
   end
 
   def create
@@ -43,6 +51,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :text)
+      params.require(:article).permit(:title, :text, :subtitle, :summary, :tags)
     end
 end

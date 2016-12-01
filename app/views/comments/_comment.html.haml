@@ -1,5 +1,7 @@
-%div{ class: 'card card-block' }
-  %h4.card-title= comment.commenter
-  %h6{ class: 'card-subtitle text-muted' }= comment.created_at
-  %p.card-text= comment.body
-  = link_to 'Delete', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' }
+.card
+  .card-block
+    %h4.card-title= comment.commenter
+    %h6{ class: 'card-subtitle text-muted' }= comment.created_at
+    %hr
+    %p.card-text= comment.body
+    = link_to 'Delete', [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' }

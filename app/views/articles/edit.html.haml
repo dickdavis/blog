@@ -1,21 +1,35 @@
 .container
-  %div{ class: 'col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2' }
-    %h1 Edit Article
-    =form_for :article, url: article_path(@article), method: :patch do |f|
-      -if @article.errors.any?
-        #error_explanation
-          %h2= "#{pluralize(@article.error.count, 'error')} prohibited this article from being saved:"
-          %ul
-            =@article.errors.full_message.each do |error|
-              %li = error
-      .form-group
-        =f.label :title
-        %br
-        =f.text_field :title, class: 'form-control'
-      .form-group
-        =f.label :text
-        %br
-        =f.text_area :text, class: 'form-control'
-      =f.submit 'Post', class: 'btn btn-primary'
-      %br
-      =link_to 'Back...', articles_path
+  .row
+    %div{ class: 'col-xs-12 col-md-10 offset-md-1' }
+      .card
+        .card-block
+          = form_for :article, url: article_path(@article), method: :patch do |f|
+            -if @article.errors.any?
+              #error_explanation
+                %h2= "#{pluralize(@article.error.count, 'error')} prohibited this article from being saved:"
+                %ul
+                  =@article.errors.full_message.each do |error|
+                    %li = error
+            .form-group
+              =f.label :title
+              %br
+              =f.text_field :title, class: 'form-control'
+            .form-group
+              =f.label :subtitle
+              %br
+              =f.text_area :subtitle, class: 'form-control'
+            .form-group
+              =f.label :tags
+              %br
+              =f.text_field :tags, class: 'form-control'
+            .form-group
+              =f.label :summary
+              %br
+              =f.text_area :summary, class: 'form-control'
+            .form-group
+              =f.label :text
+              %br
+              =f.text_area :text, class: 'form-control'
+            =f.submit 'Update', class: 'btn btn-primary'
+        .card-footer
+          = link_to 'Back...', articles_path
