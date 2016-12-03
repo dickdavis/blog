@@ -2,3 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.tag1 { font-size: 1.0em }
+.tag2 { font-size: 1.2em }
+.tag3 { font-size: 1.4em }
+.tag4 { font-size: 1.6em }
+
+.card-columns {
+    @include media-breakpoint-only(sm) {
+        column-count: 1;
+    }
+    @include media-breakpoint-only(md) {
+        column-count: 2;
+    }
+}

@@ -2,7 +2,13 @@ class ArticlesController < ApplicationController
   http_basic_authenticate_with name: 'rvd', password: 'secret', except: [:index, :show]
 
   def index
-    @articles = Article.all
+    if params[:tag]
+      @articles = Article.tagged_with(params[:tag])
+    elsif params[:search]
+      @articles = Article.search(params[:search])
+    else
+      @articles = Article.all
+    end
     @page = { title: 'Articles',
               subtitle: 'Helpful snippets of advice for fellow Rubyists and others.' }
   end
@@ -51,6 +57,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :text, :subtitle, :summary, :tags)
+      params.require(:article).permit(:title, :text, :subtitle, :summary, :all_tags)
     end
 end
