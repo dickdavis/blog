@@ -14,9 +14,9 @@
           = link_to 'Back', articles_path, class: 'btn btn-outline-primary'
   %br
   - unless @articles.present?
-    .card
-      .card-block
-        %p.card-text There are no articles to display.
+    %div{ class: 'alert alert-warning col-xs-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3' }
+      %h2.text-xs-center There are No Articles to Display
+      %p.text-justified Try using a different search term, or you can click on one of the tags to explore related articles.
   - else
     .card-columns
       - @articles.each do |article|
