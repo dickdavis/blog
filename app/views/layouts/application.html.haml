@@ -7,6 +7,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = auto_discovery_link_tag :rss, 'http://rvdavis.me/feed?format=xml', { title: 'RVDavis.me | Richard Davis (RSS)' }
   %body
     = render 'layouts/nav'
     = render 'layouts/header'
