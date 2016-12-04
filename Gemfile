@@ -19,6 +19,8 @@ end
 gem 'font-awesome-sass'
 # Use HAML instead of ERB
 gem 'haml-rails', '~> 0.9'
+# User RedCarpet for markdown
+gem 'redcarpet'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
