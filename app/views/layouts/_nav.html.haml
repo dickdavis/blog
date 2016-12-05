@@ -13,7 +13,7 @@
       %li
         = link_to 'Articles', articles_path, class: 'nav-link'
       %li
-        = link_to 'Projects', { controller: 'welcome' }, class: 'nav-link'
+        = link_to 'Projects', { controller: 'welcome', action: 'projects' }, class: 'nav-link'
       %li
         = link_to 'Resume', root_path << 'Resume_RichardDavis.pdf', class: 'nav-link', target: '_blank'
       %li

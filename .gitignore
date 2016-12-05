@@ -6,6 +6,10 @@
 
 # Ignore bundler config.
 /.bundle
+/vendor/*
+rvdavis_me.*
+server.key
+server.crt
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
