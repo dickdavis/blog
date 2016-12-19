@@ -19,8 +19,6 @@
         = link_to 'Resume', root_path << 'Resume_RichardDavis.pdf', class: 'nav-link', target: '_blank'
       %li
         = link_to 'Contact', { controller: '/welcome' }, class: 'nav-link'
-      %li
-        - if signed_in?
+      - if signed_in?
+        %li
           = link_to 'Sign out', sign_out_path, method: :delete, class: 'nav-link'
-        - else
-          = link_to 'Sign in', sign_in_path, class: 'nav-link'
