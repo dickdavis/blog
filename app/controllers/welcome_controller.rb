@@ -8,4 +8,12 @@ class WelcomeController < ApplicationController
     @page = { title: 'Projects',
               subtitle: 'A collection of my efforts and contributions.' }
   end
+
+  def contact
+  end
+
+  def mail
+    ContactMeMailer.contact_me params
+    redirect_to :contact, notice: 'Message sent successfully! I will be in touch soon. Thanks.'
+  end
 end

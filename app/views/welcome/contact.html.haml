@@ -1,0 +1,20 @@
+- @page = { title: 'Contact Richard', subtitle: '' }
+.container
+  .row
+    %div{ class: 'col-xs-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3' }
+      .card
+        .card-block
+          = form_for :mail, url: '/mail', method: :post do |f|
+            .form-group
+              = f.label :email
+              %br
+              = f.text_field :email, type: 'email', class: 'form-control'
+            .form-group
+              = f.label :subject
+              %br
+              = f.text_field :subject, class: 'form-control'
+            .form-group
+              =f.label :body
+              %br
+              ~f.text_area :body, class: 'form-control'
+            = f.submit class: 'btn btn-primary', value: 'Send Message'
