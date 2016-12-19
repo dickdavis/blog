@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with name: 'rvd', password: 'secret', except: [:index, :show]
+  before_action :require_login, only: [ :new, :edit, :create, :update, :destroy ]
 
   def index
     if params[:tag]

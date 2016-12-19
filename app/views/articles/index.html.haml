@@ -9,7 +9,8 @@
   .row#article-controls
     %div{ class: 'col-xs-12 text-xs-center', id: 'new-article' }
       %div{ class: 'btn-group btn-group-md', role: 'group' }
-        = link_to 'New article...', new_article_path, class: 'btn btn-primary'
+        -if signed_in?
+          = link_to 'New article...', new_article_path, class: 'btn btn-primary'
         - if params[:tag]
           = link_to 'Back', articles_path, class: 'btn btn-outline-primary'
   %br
@@ -23,11 +24,12 @@
         .card
           %div{ class: 'card-header text-muted' }= "Last updated: #{article.created_at}"
           .card-block
-            .text-xs-right
-              %div{ class: 'btn-group btn-group-md', role: 'group' }
-                = link_to 'Update', edit_article_path(article), class: 'btn btn-warning'
-                = link_to 'Delete', article_path(article), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }
-            %br
+            - if signed_in?
+              .text-xs-right
+                %div{ class: 'btn-group btn-group-md', role: 'group' }
+                  = link_to 'Update', edit_article_path(article), class: 'btn btn-warning'
+                  = link_to 'Delete', article_path(article), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }
+              %br
             %h2{ class: 'card-title text-xs-center' }= article.title
             %p{ class: 'card-text text-muted' }= article.subtitle
             %p.card-text= article.summary

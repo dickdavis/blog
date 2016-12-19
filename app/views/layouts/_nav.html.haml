@@ -1,8 +1,9 @@
 %nav
   #nav-header
-    %a{ href: '', id: 'nav-toggle' }
-      = icon 'bars'
-    = link_to 'Richard Davis', { controller: 'welcome' }, class: 'navbar-text'
+    .text-xs-left
+      %a{ href: '', id: 'nav-toggle' }
+        = icon 'bars'
+      = link_to 'Richard Davis', { controller: '/welcome' }, class: 'navbar-text'
   #nav-menu
     %ul
       %li
@@ -13,8 +14,13 @@
       %li
         = link_to 'Articles', articles_path, class: 'nav-link'
       %li
-        = link_to 'Projects', { controller: 'welcome', action: 'projects' }, class: 'nav-link'
+        = link_to 'Projects', { controller: '/welcome', action: 'projects' }, class: 'nav-link'
       %li
         = link_to 'Resume', root_path << 'Resume_RichardDavis.pdf', class: 'nav-link', target: '_blank'
       %li
-        = link_to 'Contact', { controller: 'welcome' }, class: 'nav-link'
+        = link_to 'Contact', { controller: '/welcome' }, class: 'nav-link'
+      %li
+        - if signed_in?
+          = link_to 'Sign out', sign_out_path, method: :delete, class: 'nav-link'
+        - else
+          = link_to 'Sign in', sign_in_path, class: 'nav-link'

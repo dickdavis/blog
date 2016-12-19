@@ -2,7 +2,8 @@
   .row
     %div{ class: 'col-xs-12 col-lg-10 offset-lg-1 text-xs-right' }
       %div{ class: 'btn-group btn-group-md', role: 'group' }
-        = link_to 'Update', edit_article_path(@article), class: 'btn btn-primary'
+        - if signed_in?
+          = link_to 'Update', edit_article_path(@article), class: 'btn btn-primary'
         = link_to 'Back', articles_path, class: 'btn btn-outline-primary'
   %br
   .row

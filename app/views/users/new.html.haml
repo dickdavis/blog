@@ -1,0 +1,19 @@
+- @page = { title: 'Sign up', subtitle: '' }
+.container
+  .row
+    %div{ id: 'clearance', class: 'sign-up col-xs-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3' }
+      .card
+        .card-block
+          = form_for @user do |form|
+            .form-group
+              = form.label :email
+              %br
+              = form.text_field :email, type: 'email', class: 'form-control'
+            .form-group
+              = form.label :password
+              %br
+              = form.password_field :password, class: 'form-control'
+            = form.submit class: 'btn btn-primary'
+            .other-links
+              %br
+              = link_to t(".sign_in"), sign_in_path
