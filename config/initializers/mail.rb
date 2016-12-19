@@ -1,5 +1,3 @@
-ActionMailer::Base.register_interceptor(SendGrid::MailInterceptor)
-
 if ENV['SENDGRID_USERNAME'] && ENV['SENDGRID_PASSWORD']
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
