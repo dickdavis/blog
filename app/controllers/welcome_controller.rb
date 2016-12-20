@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+  include SendGrid
   def index
     @page = { title: 'Hello!',
               subtitle: 'My name is Richard Davis, and I am a software engineer.' }
@@ -13,7 +14,13 @@ class WelcomeController < ApplicationController
   end
 
   def mail
-    ContactMeMailer.contact_me params
-    redirect_to :contact, notice: 'Message sent successfully! I will be in touch soon. Thanks.'
+    from = Email.new email: params[:email]
+    subject = params[:subject]
+    to = Email.new 'rvdavis@member.fsf.org'
+    content = Content.new type: 'text/plain', value: params[:body]
+    mail = Mail.new from, subject, to, content
+    sg = SendGrid::API.new api_key: ENV['SENDGRID_API_KEY']
+    response = sg.client.mail._('send').post(request_body: mail.to_json)
+    redirect_to :contact, notice: "#{response.status_code} #{response.body} #{response.headers}"
   end
 end
