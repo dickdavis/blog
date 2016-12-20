@@ -6,4 +6,5 @@
   %div{ class: 'col-xs-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3' }
     #flash
       - flash.each do |key, value|
-        %div{ id: "flash_#{key}", class: 'alert alert-danger', role: 'alert' }=h value
+        %div{ id: "flash_#{key}", class: "alert alert-#{key}", role: 'alert' }
+          .text-xs-center=h value
