@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
-  http_basic_authenticate_with name: 'rvd', password: 'secret', only: :destroy
-
   def create
     @article = Article.find(params[:article_id])
+    if params[:comment][:parent_id].to_i > 0
     @comment = @article.comments.create(comment_params)
+    flash[:success] = 'Your comment was successfully added.'
     redirect_to article_path(@article)
   end
 
@@ -16,6 +16,6 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:commenter, :body)
+      params.require(:comment).permit(:commenter, :body, :parent_id)
     end
 end

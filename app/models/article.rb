@@ -19,9 +19,6 @@ class Article < ApplicationRecord
   end
 
   def self.search search
-    where "title LIKE ?", "%#{search}%"
-    where "text LIKE ?", "%#{search}%"
-    where "subtitle LIKE ?", "%#{search}%"
-    where "summary LIKE ?", "%#{search}%"
+    where "title ILIKE ? OR summary ILIKE ? OR subtitle ILIKE ? OR text ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"
   end
 end

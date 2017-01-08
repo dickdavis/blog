@@ -1,0 +1,10 @@
+= form_tag([@article, @article.comments.build]) do
+  .form-group
+    = label_tag :name
+    %br
+    = text_field_tag :commenter, class: 'form-control'
+  .form-group
+    = label_tag :comment
+    %br
+    = text_area_tag :body, class: 'form-control'
+  = submit 'Post', class: 'btn btn-primary'
