@@ -2,9 +2,10 @@ class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     if params[:comment][:parent_id].to_i > 0
-    @comment = @article.comments.create(comment_params)
-    flash[:success] = 'Your comment was successfully added.'
-    redirect_to article_path(@article)
+      @comment = @article.comments.create(comment_params)
+      flash[:success] = 'Your comment was successfully added.'
+      redirect_to article_path(@article)
+    end
   end
 
   def destroy
