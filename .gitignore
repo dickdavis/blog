@@ -11,6 +11,7 @@ rvdavis_me.*
 server.key
 server.crt
 .env
+*.log
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
