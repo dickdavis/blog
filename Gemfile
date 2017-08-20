@@ -13,10 +13,7 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 # Use Twitter Bootstrap
 gem 'bootstrap', '~> 4.0.0.alpha5'
-# Use Tether for Bootstrap component positioning
-source 'https://rails-assets.org' do
-    gem 'rails-assets-tether', '>= 1.1.0'
-end
+gem 'popper_js', '~> 1.11', '>= 1.11.1'
 # Use Font Awesome for iconography
 gem 'font-awesome-sass'
 # Use HAML instead of ERB
