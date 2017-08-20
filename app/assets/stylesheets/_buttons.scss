@@ -1,0 +1,33 @@
+// ======================
+//  Buttons
+// ======================
+
+.btn-primary {
+  background-color: $red;
+  border-color: $red;
+  &:hover {
+    background-color: $dark-red;
+    border-color: $dark-red;
+  }
+  &:active {
+    background-color: $darker-red;
+    border-color: $darker-red;
+  }
+}
+.active {
+  background-color: $darker-red;
+  border-color: $darker-red;
+}
+
+.btn-outline-primary {
+  border-color: $red;
+  color: $red;
+  &:hover {
+    border-color: $red;
+    background-color: $red
+  }
+  &:active {
+    background-color: $dark-red;
+    border-color: $dark-red;
+  }
+}

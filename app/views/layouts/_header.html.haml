@@ -1,9 +1,7 @@
-.jumbotron
-  %h1{ class: 'text-xs-right display-3' }= @page[:title]
-  %p{ class: 'text-xs-right lead' }= @page[:subtitle]
-.container
-  %div{ class: 'col-xs-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3' }
-    #flash
-      - flash.each do |key, value|
-        %div{ id: "flash_#{key}", class: "alert alert-#{key}", role: 'alert' }
-          .text-xs-center=h value
+- if flash[:message]
+  #flash
+    - flash.each do |key, value|
+      %div{ class: "alert alert-info alert-dismissible fade show", role: 'alert' }
+        %button{ type: 'button', class: 'close', 'data-dismiss': 'alert', 'aria-label': 'Close' }
+          %span{ 'aria-hidden': 'true' } &times;
+        .text-xs-center=h value

@@ -1,0 +1,19 @@
+// ======================
+//  Typography
+// ======================
+
+a {
+    color: $red;
+    &:hover {
+        color: $dark-red
+    }
+    &:active {
+        color: $darker-red
+    }
+}
+.card-title {
+    color: $dark-red;
+}
+.card-subtitle {
+    color: $darker-red;
+}

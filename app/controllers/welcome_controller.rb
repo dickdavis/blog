@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   include SendGrid
-  def index
+  def about
   end
 
   def projects

@@ -2,5 +2,15 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "variables";
+@import "buttons";
+@import "typography";
 @import "layout/layout";
 @import "articles";
+
+html, body {
+  background-color: $one;
+  .jumbotron {
+    background-color: $red;
+    color: white;
+  }
+}

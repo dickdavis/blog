@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   end
   get 'tags/:tag', to: 'articles#index', as: 'tag'
   get 'feed' => 'feeds#feed'
+  get 'about' => 'welcome#about'
   get 'projects' => 'welcome#projects'
   get 'contact' => 'welcome#contact'
   post 'mail' => 'welcome#mail'
-  root 'welcome#index'
+  root 'articles#index'
 end

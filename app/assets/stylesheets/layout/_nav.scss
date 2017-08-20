@@ -16,6 +16,9 @@ nav {
             color: $one;
             padding: .5em;
             text-decoration: none;
+            i {
+              color: $red;
+            }
         }
         a.navbar-text {
           color: $one;
@@ -71,11 +74,11 @@ nav {
                     text-decoration: none;
                     color: $one;
                     &:hover {
-                        color: $five;
+                        color: $red;
                         background-color: $two;
                     }
                     &:active {
-                        color: $one;
+                        color: $red;
                         background-color: $one;
                     }
                 }

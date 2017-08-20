@@ -3,7 +3,7 @@
     .text-xs-left
       %a{ href: '', id: 'nav-toggle' }
         = icon 'bars'
-      = link_to 'Richard Davis', { controller: '/welcome' }, class: 'navbar-text'
+      = link_to "#{@page[:title]}", '', class: 'navbar-text'
   #nav-menu
     %ul
       %li
@@ -12,11 +12,11 @@
           = submit_tag 'Search', class: 'btn btn-primary'
           %br
       %li
-        = link_to 'Articles', articles_path, class: 'nav-link'
+        = link_to 'Home', root_path, class: 'nav-link'
+      %li
+        = link_to 'About', { controller: '/welcome', action: 'about' }, class: 'nav-link'
       %li
         = link_to 'Projects', { controller: '/welcome', action: 'projects' }, class: 'nav-link'
-      %li
-        = link_to 'Resume', root_path << 'Resume_RichardDavis.pdf', class: 'nav-link', target: '_blank'
       %li
         = link_to 'Contact', { controller: '/welcome', action: 'contact'}, class: 'nav-link'
       - if signed_in?
