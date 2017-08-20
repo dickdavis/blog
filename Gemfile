@@ -12,7 +12,7 @@ gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Twitter Bootstrap
-gem 'bootstrap', '~> 4.0.0.alpha5'
+gem 'bootstrap', '4.0.0.alpha6'
 gem 'popper_js', '~> 1.11', '>= 1.11.1'
 # Use Font Awesome for iconography
 gem 'font-awesome-sass'
