@@ -1,9 +1,9 @@
 %nav
   #nav-header
-    .text-xs-left
+    .text-left
       %a{ href: '#', id: 'nav-toggle' }
         = icon 'bars'
-      = link_to "#{@page[:title]}", '', class: 'navbar-text'
+      = link_to "#{@page[:'navbar-title']}", '', class: 'navbar-text'
   #nav-menu
     %ul
       %li

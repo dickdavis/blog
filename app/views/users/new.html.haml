@@ -1,7 +1,8 @@
-- @page = { title: 'Sign up', subtitle: '' }
+- @page = { title: 'Sign Up',
+            'navbar-title': 'Sign Up' }
 .container
   .row
-    %div{ id: 'clearance', class: 'sign-up col-xs-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3' }
+    %div{ id: 'clearance', class: 'sign-up col-xs-12 col-md-8 col-lg-6' }
       .card
         .card-block
           = form_for @user do |form|

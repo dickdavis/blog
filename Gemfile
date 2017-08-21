@@ -5,7 +5,7 @@ ruby '2.4.0'
 gem 'rails', '~> 5.1', '>= 5.1.3'
 # Use dotenv to load environment variables
 gem 'dotenv-rails', groups: %i[development test]
-# Use sqlite3 as the database for Active Record
+# Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

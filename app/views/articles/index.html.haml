@@ -1,7 +1,17 @@
 - @page = { title: 'Articles',
-           'navbar-title': 'Articles'}
-.container-fluid
+            'navbar-title': 'Articles' }
+.container
   %br
+  .row#article-controls.justify-content-end
+    %div{ class: 'col-xs-12 text-xs-center', id: 'new-article' }
+      %div{ class: 'btn-group btn-group-md', role: 'group' }
+        -if signed_in?
+          = link_to 'New Article', new_article_path, class: 'btn btn-primary'
+        - if params[:search]
+          = link_to 'Clear Search Terms', articles_path, class: 'btn btn-outline-primary'
+        - if params[:tag]
+          = link_to 'Clear Tag Filter', articles_path, class: 'btn btn-outline-primary'
+  %hr
   .row#article-tags.justify-content-center
     %div{ class: 'col-xs-12 col-md-10 col-lg-8' }
       .card
@@ -9,18 +19,15 @@
           %p.card-text
             - tag_cloud Tag.counts, %w{tag1 tag2 tag3 tag4} do |tag, css_class|
               = link_to tag.name, tag_path(tag.name), class: css_class
-  .row#article-controls
-    %div{ class: 'col-xs-12 text-xs-center', id: 'new-article' }
-      %div{ class: 'btn-group btn-group-md', role: 'group' }
-        -if signed_in?
-          = link_to 'New article...', new_article_path, class: 'btn btn-primary'
-        - if params[:tag]
-          = link_to 'Back', articles_path, class: 'btn btn-outline-primary'
-  %br
+  %hr
   - unless @articles.present?
-    %div{ class: 'alert alert-warning col-xs-12 col-md-8 col-lg-6' }
-      %h2.text-xs-center There are No Articles to Display
-      %p.text-justified Try using a different search term, or you can click on one of the tags to explore related articles.
+    .row
+      %div{ class: 'col-lg-12' }
+        .card
+          .card-body
+            .text-center
+              %h2.card-title There are No Articles to Display
+              %p.card-text Try using a different search term, or you can click on one of the tags to explore related articles.
   - else
     .card-columns
       - @articles.each do |article|
@@ -28,15 +35,15 @@
           %div{ class: 'card-header text-muted' }= "Last updated: #{article.created_at}"
           .card-body
             - if signed_in?
-              .text-xs-right
+              .text-right
                 %div{ class: 'btn-group btn-group-md', role: 'group' }
                   = link_to 'Update', edit_article_path(article), class: 'btn btn-warning'
                   = link_to 'Delete', article_path(article), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }
               %br
-            %h2{ class: 'card-title text-xs-center' }= article.title
+            %h2{ class: 'card-title text-center' }= article.title
             %p{ class: 'card-text text-muted' }= article.subtitle
             %p.card-text= article.summary
-            .text-xs-center
+            .text-center
               %div{ class: 'btn-group btn-group-md', role: 'group' }
                 = link_to 'Read', article_path(article), class: 'btn btn-outline-primary'
           .card-footer

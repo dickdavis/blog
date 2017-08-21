@@ -1,4 +1,5 @@
--@page = { title: 'View Article' }
+-@page = { title: @article.title,
+           'navbar-title': 'View Article' }
 .jumbotron
   %h1{ class: 'text-right display-3' }= @article.title
   %p{ class: 'text-right lead' }= @article.subtitle
