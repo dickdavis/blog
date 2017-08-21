@@ -1,28 +1,32 @@
--@page = { title: @article.title,
-           subtitle: @article.subtitle }
+-@page = { title: 'View Article' }
 .jumbotron
-  %h1{ class: 'text-xs-right display-3' }= @page[:title]
-  %p{ class: 'text-xs-right lead' }= @page[:subtitle]
+  %h1{ class: 'text-right display-3' }= @article.title
+  %p{ class: 'text-right lead' }= @article.subtitle
 .container
-  .row
-    %div{ class: 'col-xs-12 col-lg-10 offset-lg-1' }
+  %div{ class: 'row justify-content-center' }
+    %div{ class: 'col-xs-12 col-lg-10' }
       .card
-        .card-block
-          %div{ class: 'col-xs-12 col-lg-10 offset-lg-1 text-xs-right' }
-            %div{ class: 'btn-group btn-group-md', role: 'group' }
-              - if signed_in?
-                = link_to 'Update', edit_article_path(@article), class: 'btn btn-primary'
-              = link_to 'Back', articles_path, class: 'btn btn-outline-primary'
-            %hr
+        .card-body
+          .container
+            %div{ class: 'row justify-content-end' }
+              %div{ class: 'col-xs-12 col-lg-10 text-right' }
+                %div{ class: 'btn-group btn-group-md', role: 'group' }
+                  - if signed_in?
+                    = link_to 'Update', edit_article_path(@article), class: 'btn btn-primary'
+                  = link_to 'Back', articles_path, class: 'btn btn-outline-primary'
+            .text-center
+              %hr
             %h6.text-muted= "PUBLISHED BY Richard Davis AT #{@article.created_at}"
             - if @article.created_at != @article.updated_at
               %h6.text-muted= "LAST UPDATED AT #{@article.updated_at}"
-            %hr
-          .row
-            %div{ class: 'col-xs-12 col-lg-10 offset-lg-1 text-justified' }
-              = markdown(@article.text).html_safe
-              %div{ class: 'col-xs-12 col-lg-8 offset-lg-2' }
-                %p.text-xs-center
+            .text-center
+              %hr
+            %div{ class: 'row justify-content-center' }
+              %div{ class: 'col-xs-12 col-lg-10 text-justified' }
+                = markdown(@article.text).html_safe
+            %div{ class: 'row justify-content-center' }
+              %div{ class: 'col-xs-12 col-lg-8' }
+                %p.text-center
                   %a{ rel: 'license', href: 'http://creativecommons.org/licenses/by-sa/4.0/' }
                     %img{ alt: 'Creative Commons License', style: 'border-width:0', src: 'https://i.creativecommons.org/l/by-sa/4.0/88x31.png' }
                   %br
@@ -32,11 +36,3 @@
                   is licensed under a
                   %a{ rel: 'license', href: 'http://creativecommons.org/licenses/by-sa/4.0/' }
                     Creative Commons Attribution-ShareAlike 4.0 International License.
-          %br
-  .row
-    %div{ class: 'col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2' }
-      = render @article.comments
-  %br
-  .row
-    %div{ class: 'col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2' }
-      = render 'comments/form'

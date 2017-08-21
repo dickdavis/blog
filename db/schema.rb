@@ -10,65 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221044203) do
+ActiveRecord::Schema.define(version: 20170821191732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "articles", force: :cascade do |t|
-    t.string   "title"
-    t.text     "text"
+  create_table "articles", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "subtitle"
-    t.text     "summary"
+    t.string "subtitle"
+    t.text "summary"
   end
 
-  create_table "comment_hierarchies", id: false, force: :cascade do |t|
-    t.integer "ancestor_id",   null: false
-    t.integer "descendant_id", null: false
-    t.integer "generations",   null: false
-    t.index ["ancestor_id", "descendant_id", "generations"], name: "comment_anc_desc_idx", unique: true, using: :btree
-    t.index ["descendant_id"], name: "comment_desc_idx", using: :btree
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.string   "commenter"
-    t.text     "body"
-    t.integer  "article_id"
+  create_table "taggings", id: :serial, force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "parent_id"
-    t.index ["article_id"], name: "index_comments_on_article_id", using: :btree
+    t.index ["article_id"], name: "index_taggings_on_article_id"
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
   end
 
-  create_table "taggings", force: :cascade do |t|
-    t.integer  "article_id"
-    t.integer  "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_taggings_on_article_id", using: :btree
-    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string   "name"
+  create_table "tags", id: :serial, force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "email",                          null: false
-    t.string   "encrypted_password", limit: 128, null: false
-    t.string   "confirmation_token", limit: 128
-    t.string   "remember_token",     limit: 128, null: false
-    t.index ["email"], name: "index_users_on_email", using: :btree
-    t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email", null: false
+    t.string "encrypted_password", limit: 128, null: false
+    t.string "confirmation_token", limit: 128
+    t.string "remember_token", limit: 128, null: false
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
-  add_foreign_key "comments", "articles"
   add_foreign_key "taggings", "articles"
   add_foreign_key "taggings", "tags"
 end

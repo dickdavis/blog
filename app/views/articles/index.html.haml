@@ -1,10 +1,11 @@
--@page = { title: 'The Digital Works of RV Davis' }
+- @page = { title: 'Articles',
+           'navbar-title': 'Articles'}
 .container-fluid
   %br
-  .row#article-tags
-    %div{ class: 'col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2' }
+  .row#article-tags.justify-content-center
+    %div{ class: 'col-xs-12 col-md-10 col-lg-8' }
       .card
-        .card-block
+        .card-body
           %p.card-text
             - tag_cloud Tag.counts, %w{tag1 tag2 tag3 tag4} do |tag, css_class|
               = link_to tag.name, tag_path(tag.name), class: css_class
@@ -17,7 +18,7 @@
           = link_to 'Back', articles_path, class: 'btn btn-outline-primary'
   %br
   - unless @articles.present?
-    %div{ class: 'alert alert-warning col-xs-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3' }
+    %div{ class: 'alert alert-warning col-xs-12 col-md-8 col-lg-6' }
       %h2.text-xs-center There are No Articles to Display
       %p.text-justified Try using a different search term, or you can click on one of the tags to explore related articles.
   - else
@@ -25,7 +26,7 @@
       - @articles.each do |article|
         .card
           %div{ class: 'card-header text-muted' }= "Last updated: #{article.created_at}"
-          .card-block
+          .card-body
             - if signed_in?
               .text-xs-right
                 %div{ class: 'btn-group btn-group-md', role: 'group' }

@@ -1,7 +1,7 @@
 %nav
   #nav-header
     .text-xs-left
-      %a{ href: '', id: 'nav-toggle' }
+      %a{ href: '#', id: 'nav-toggle' }
         = icon 'bars'
       = link_to "#{@page[:title]}", '', class: 'navbar-text'
   #nav-menu
@@ -12,13 +12,11 @@
           = submit_tag 'Search', class: 'btn btn-primary'
           %br
       %li
-        = link_to 'Home', root_path, class: 'nav-link'
-      %li
-        = link_to 'About', { controller: '/welcome', action: 'about' }, class: 'nav-link'
+        = link_to 'Articles', root_path, class: 'nav-link'
       %li
         = link_to 'Projects', { controller: '/welcome', action: 'projects' }, class: 'nav-link'
       %li
-        = link_to 'Contact', { controller: '/welcome', action: 'contact'}, class: 'nav-link'
+        = link_to 'About', { controller: '/welcome', action: 'about' }, class: 'nav-link'
       - if signed_in?
         %li
           = link_to 'Sign out', sign_out_path, method: :delete, class: 'nav-link'

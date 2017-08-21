@@ -10,17 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= popper
 //= require turbolinks
-//= require bootstrap
+//= require jquery/dist/jquery
+//= require popper.js/dist/umd/popper
+//= require bootstrap/dist/js/bootstrap
 //= require_tree .
-
-$(document).on('turbolinks:load', function() {
-  $('#nav-toggle').on('click', function(e) {
-    e.preventDefault();
-    // ...nav class is set to open
-    $('#nav-menu').toggleClass('open-menu');
-  });
-})
