@@ -8,6 +8,15 @@
         %hr{ class: 'my-2' }
     .row#footer-icons
       %div{ class: 'col-sm-12 footer-icon' }
+        %a{ href: 'dick@rvdavis.me' }
+          = icon('envelope', class: 'fa-4x')
+        %br
+        = link_to 'Public Key', 'http://pgp.mit.edu/pks/lookup?op=get&search=0x0997BADFB2E6E15E'
+        %p A7F7 F47B C0DD 7C37 C943  AD99 0997 BADF B2E6 E15E
+      %div{ class: 'col-sm-12 footer-icon' }
+        %a{ href: 'https://t.me/rvdavis_me_blog' }
+          = icon('telegram', class: 'fa-4x')
+      %div{ class: 'col-sm-12 footer-icon' }
         %a{ href: 'https://github.com/d3d1rty' }
           = icon('github', class: 'fa-4x')
       %div{ class: 'col-sm-12 footer-icon' }

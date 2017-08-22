@@ -1,8 +1,9 @@
 -@page = { title: @article.title,
            'navbar-title': 'View Article' }
-.jumbotron
-  %h1{ class: 'text-right display-3' }= @article.title
-  %p{ class: 'text-right lead' }= @article.subtitle
+%div{ class: 'jumbotron jumbotron-fluid' }
+  .container
+    %h1{ class: 'text-right display-3' }= @article.title
+    %p{ class: 'text-right lead' }= @article.subtitle
 .container
   %div{ class: 'row justify-content-center' }
     %div{ class: 'col-xs-12 col-lg-10' }
