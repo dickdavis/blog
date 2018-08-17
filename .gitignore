@@ -30,3 +30,5 @@ server.crt
 
 # Ignore precompiled assets
 /public/assets/*
+/public/packs
+/node_modules
