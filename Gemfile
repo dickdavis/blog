@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
-ruby '2.4.0'
+ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1', '>= 5.1.3'
+gem 'rails', '~> 5.2', '>= 5.2.1'
 # Use dotenv to load environment variables
-gem 'dotenv-rails', groups: %i[development test]
+gem 'dotenv-rails', '~> 2.5', groups: %i[development test]
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 1.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -20,15 +20,15 @@ gem 'uglifier', '>= 1.3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Font Awesome for iconography
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 4.7'
 # Use HAML instead of ERB
-gem 'haml-rails', '~> 0.9'
+gem 'haml-rails', '~> 1.0'
 # Use RedCarpet for markdown
-gem 'redcarpet'
+gem 'redcarpet', '~> 3.4'
 # Use CodeRay for syntax highlighting
-gem 'coderay'
+gem 'coderay', '~> 1.1', '>= 1.1.2'
 # Use clearance for authentication
-gem 'clearance'
+gem 'clearance', '~> 1.16', '>= 1.16.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -52,6 +52,3 @@ group :development do
   gem 'guard', '~> 2.14', '>= 2.14.1'
   gem 'guard-minitest', '~> 2.4', '>= 2.4.6'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
