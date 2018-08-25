@@ -1,9 +1,9 @@
-- @page = { title: 'Sign In', subtitle: '' }
+- @page = { title: 'Sign In', 'navbar-title': 'Sign In' }
 .container
-  .row
-    %div{ id: 'clearance', class: 'sign-in col-xs-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3' }
+  .row{ class: 'justify-content-center mt-2' }
+    %div{ id: 'clearance', class: 'sign-in col-xs-12 col-md-8' }
       .card
-        .card-block
+        .card-body
           = form_for :session, url: session_path do |form|
             .form-group
               = form.label :email
