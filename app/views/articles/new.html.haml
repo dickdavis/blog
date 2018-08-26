@@ -1,5 +1,4 @@
-- @page = { title: 'Create Article',
-            'navbar-title': 'Create Article' }
+- @page = { title: 'Create Article', 'navbar-title': 'Create Article' }
 .container
   %br
   %div{ class: 'row justify-content-center' }
@@ -13,27 +12,6 @@
     %div{ class: 'col-xs-12 col-md-10' }
       .card
         .card-body
-          = form_for :article, url: articles_path do |f|
-            .form-group
-              =f.label :title
-              %br
-              =f.text_field :title, class: 'form-control'
-            .form-group
-              =f.label :subtitle
-              %br
-              =f.text_area :subtitle, class: 'form-control'
-            .form-group
-              =f.label 'Tags'
-              %br
-              =f.text_field :all_tags, class: 'form-control', placeholder: 'Enter tags separated by commas...'
-            .form-group
-              =f.label :summary
-              %br
-              =f.text_area :summary, class: 'form-control'
-            .form-group
-              =f.label :text
-              %br
-              ~f.text_area :text, class: 'form-control'
-            =f.submit 'Post', class: 'btn btn-primary'
+          = render 'form'
         .card-footer
-          = link_to 'Back...', articles_path
+          = link_to 'Back', articles_path

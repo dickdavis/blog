@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get 'feed' => 'feeds#feed'
   get 'about' => 'welcome#about'
   get 'projects' => 'welcome#projects'
-  root 'articles#index'
+  root 'posts#index'
 end

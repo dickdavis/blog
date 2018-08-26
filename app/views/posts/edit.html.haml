@@ -1,7 +1,19 @@
-%h1 Editing post
+- @page = { title: 'Edit Post', 'navbar-title': 'Edit Post' }
+.container
+  .row.justify-content-center.mt-2
+    .col-xs-12.col-md-8
+      = if @post.errors.any?
+        #error_explanation
+          %h2= "#{pluralize @post.errors.count, 'error'} prohibited this post from being saved:"
+          %ul
+            =@post.errors.full_messages.each do |e|
+              %li= e
+    .col-xs-12.col-md-8
+      .card
+        .card-body
+          = render 'form'
+        .card-footer
+          = link_to 'Show', @post
+          %br
+          = link_to 'Back', posts_path
 
-= render 'form'
-
-= link_to 'Show', @post
-\|
-= link_to 'Back', posts_path
