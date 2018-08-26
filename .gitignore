@@ -25,10 +25,10 @@ server.crt
 
 # Ignore Byebug command history file.
 .byebug_history
-/public/packs
 /node_modules/*
 
 # Ignore precompiled assets
 /public/assets/*
-/public/packs
+/public/packs/*
+!/public/packs/.keep
 /node_modules
