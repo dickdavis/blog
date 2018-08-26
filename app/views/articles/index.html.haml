@@ -1,8 +1,6 @@
-- @page = { title: 'Articles',
-            'navbar-title': 'Articles' }
+- @page = { title: 'Articles', 'navbar-title': 'Articles' }
 .container
-  %br
-  .row#article-controls.justify-content-end
+  .row#article-controls.justify-content-end.mt-2
     %div{ class: 'col-xs-12 text-xs-center', id: 'new-article' }
       %div{ class: 'btn-group btn-group-md', role: 'group' }
         -if signed_in?
