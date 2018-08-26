@@ -12,7 +12,7 @@ gem 'puma', '~> 3.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Webpacker for assets
-gem 'webpacker', '~> 2.0'
+gem 'webpacker', '~> 3.5', '>= 3.5.5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Uglifier as compressor for JavaScript assets
