@@ -52,3 +52,7 @@ group :development do
   gem 'guard', '~> 2.14', '>= 2.14.1'
   gem 'guard-minitest', '~> 2.4', '>= 2.4.6'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
