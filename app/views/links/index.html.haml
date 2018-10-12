@@ -1,0 +1,18 @@
+- @page = { title: 'Links', 'navbar-title': 'Links' }
+.container
+  -if signed_in?
+    .row.justify-content-center.mt-2.mx-2
+      = link_to 'New Link', new_link_path, class: 'btn btn-primary'
+    %hr
+  - @links.each do |link|
+    .row.justify-content-center.mt-2.mx-2
+      .card{ class: 'col-xs-12 col-md-6' }
+        - if signed_in? || link.published?
+          .card-body
+            - if signed_in?
+              .text-right
+                %div{ class: 'btn-group btn-group-md', role: 'group' }
+                  = link_to 'Update', edit_link_path(link), class: 'btn btn-outline-primary'
+                  = link_to 'Delete', link_path(link), class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' }
+            %h6.card-subtitle.text-muted= link.updated_at
+            %p.card-text= markdown(link.message).html_safe

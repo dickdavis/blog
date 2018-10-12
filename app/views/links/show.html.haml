@@ -1,0 +1,14 @@
+- @page = { title: 'Show Link', 'navbar-title': 'Show Link' }
+.container
+  .row.justify-content-center.mt-2
+    .col-xs-12.col-md-8
+      .card
+        .card-body
+          - if signed_in?
+            .text-right
+              %div{ class: 'btn-group btn-group-md', role: 'group' }
+                = link_to 'Update', edit_link_path(@link), class: 'btn btn-outline-primary'
+                = link_to 'Delete', link_path(@link), class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' }
+          %h6.card-subtitle.text-muted= @link.updated_at
+          %p.card-text= markdown(@link.message).html_safe
+          = link_to 'Back', links_path

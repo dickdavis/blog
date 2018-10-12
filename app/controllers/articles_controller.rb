@@ -7,6 +7,7 @@
 # This controller provides methods to access article resources
 class ArticlesController < ApplicationController
   before_action :require_login, only: %i[new edit create update destroy]
+  before_action :set_article, only: %i[show edit update destroy]
 
   ##
   # GET /articles
@@ -24,9 +25,7 @@ class ArticlesController < ApplicationController
   ##
   # GET /articles/1
   # GET /articles/1.json
-  def show
-    @article = Article.find(params[:id])
-  end
+  def show; end
 
   ##
   # GET /articles/new
@@ -36,9 +35,7 @@ class ArticlesController < ApplicationController
 
   ##
   # GET /articles/1/edit
-  def edit
-    @article = Article.find(params[:id])
-  end
+  def edit; end
 
   ##
   # POST /articles
@@ -48,8 +45,8 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @article.save
         flash[:message] = 'Article was successfully created.'
-        format.html { redirect_to article_path(@article) }
-        format.json { render :show, status: :created, location: article_path(@article) }
+        format.html { redirect_to @article }
+        format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }
@@ -61,12 +58,11 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-    @article = Article.find(params[:id])
     respond_to do |format|
       if @article.update(article_params)
         flash[:message] = 'Article was successfully updated.'
-        format.html { redirect_to article_path(@article) }
-        format.json { render :show, status: :ok, location: article_path(@article) }
+        format.html { redirect_to @article }
+        format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit }
         format.json { render json: @article.errors, status: :unprocessable_entity }
@@ -78,7 +74,6 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
     respond_to do |format|
       flash[:message] = 'Article was successfully destroyed.'
@@ -88,6 +83,11 @@ class ArticlesController < ApplicationController
   end
 
   private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
   ##
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,4 +1,4 @@
-= form_for @post do |f|
+= form_for @link do |f|
   .form-group
     =f.label :message
     %br
@@ -7,4 +7,4 @@
     =f.label :published
     %br
     ~f.check_box :published, class: 'form-control'
-  =f.submit 'Post', class: 'btn btn-primary'
+  =f.submit 'Publish', class: 'btn btn-primary'
