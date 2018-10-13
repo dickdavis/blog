@@ -1,15 +1,8 @@
 - @page = { title: 'Create Article', 'navbar-title': 'Create Article' }
+= render 'layouts/errors', object: @article
 .container
-  %br
-  %div{ class: 'row justify-content-center' }
-    %div{ class: 'col-xs-12 col-md-10 col-lg-8' }
-      = if @article.errors.any?
-        #error_explanation
-          %h2= "#{pluralize @article.errors.count, 'error'} prohibited this article from being saved:"
-          %ul
-            =@article.errors.full_messages.each do |e|
-              %li= e
-    %div{ class: 'col-xs-12 col-md-10' }
+  .row.justify-content-center.mt-3
+    .col-xs-12.col-md-10
       .card
         .card-body
           = render 'form'

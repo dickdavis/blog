@@ -18,7 +18,7 @@
       %li
         = link_to 'Links', links_path, class: 'nav-link'
       %li
-        = link_to 'Projects', { controller: '/welcome', action: 'projects' }, class: 'nav-link'
+        = link_to 'Projects', projects_path, class: 'nav-link'
       - if signed_in?
         %li
           = link_to 'Sign out', sign_out_path, method: :delete, class: 'nav-link'

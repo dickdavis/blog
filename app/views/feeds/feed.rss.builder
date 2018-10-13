@@ -1,4 +1,4 @@
-#encoding: UTF-8
+# encoding: UTF-8
 
 xml.instruct! :xml, version: '1.0'
 xml.rss version: '2.0' do
@@ -9,7 +9,7 @@ xml.rss version: '2.0' do
     xml.link 'https://rvdavis.me'
     xml.language 'en'
 
-    for article in @articles
+    @articles.each do |article|
       xml.item do
         xml.title article.title
         xml.author 'Richard Davis'
@@ -17,7 +17,7 @@ xml.rss version: '2.0' do
         xml.link "https://rvdavis.me/articles/#{article.id}"
         xml.guid article.id
         xml.description article.summary
-        text = article.text
+        article.text
       end
     end
   end

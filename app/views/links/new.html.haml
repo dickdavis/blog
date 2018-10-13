@@ -1,13 +1,7 @@
 - @page = { title: 'Create Link', 'navbar-title': 'Create Link' }
+= render 'layouts/errors', object: @link
 .container
-  .row.justify-content-center.mt-2
-    .col-xs-12.col-md-8
-      = if @link.errors.any?
-        #error_explanation
-          %h2= "#{pluralize @link.errors.count, 'error'} prohibited this link from being saved:"
-          %ul
-            =@link.errors.full_messages.each do |e|
-              %li= e
+  .row.justify-content-center.mt-3
     .col-xs-12.col-md-8
       .card
         .card-body

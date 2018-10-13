@@ -1,0 +1,26 @@
+- @page = { title: 'Projects', 'navbar-title': 'Projects' }
+.container
+  -if signed_in?
+    .row.justify-content-center.mt-3.mx-3
+      = link_to 'New Project', new_project_path, class: 'btn btn-primary'
+    %hr
+  - unless @projects.present?
+    .row.justify-content-center.mt-3.mx-3
+      .card.col-lg-12
+        .card-body
+          .text-center
+            %h2.card-title There are No Projects to Display
+            %p.card-text Projects have not been uploaded yet; check back later.
+  .row.justify-content-center.mt-3.mx-3
+    .card-columns
+      - @projects.each do |project|
+        .card
+          - if signed_in?
+            .card-header
+              .text-right
+                %div{ class: 'btn-group btn-group-md', role: 'group' }
+                  = link_to 'Update', edit_project_path(project), class: 'btn btn-outline-primary'
+                  = link_to 'Delete', project_path(project), class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' }
+          .card-body
+            %h2.card-title.text-center= project.title
+            %p.card-text~ markdown(project.description).html_safe

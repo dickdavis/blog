@@ -1,13 +1,7 @@
-- @page = { title: 'Edit Article',
-            'navbar-title': 'Edit Article' }
+- @page = { title: 'Edit Article', 'navbar-title': 'Edit Article' }
+= render 'layouts/errors', object: @article
 .container
-  -if @article.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@article.error.count, 'error')} prohibited this article from being saved:"
-      %ul
-        =@article.errors.full_message.each do |error|
-          %li = error
-  .row.justify-content-center.mt-2
+  .row.justify-content-center.mt-3
     .col-xs-12.col-md-10
       .card
         .card-body

@@ -13,13 +13,13 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    if params[:tag]
-      @articles = Article.tagged_with(params[:tag]).order(updated_at: :desc)
-    elsif params[:search]
-      @articles = Article.search(params[:search]).order(updated_at: :desc)
-    else
-      @articles = Article.all.order(updated_at: :desc)
-    end
+    @articles = if params[:tag]
+                  Article.tagged_with(params[:tag]).order(updated_at: :desc)
+                elsif params[:search]
+                  Article.search(params[:search]).order(updated_at: :desc)
+                else
+                  Article.all.order(updated_at: :desc)
+                end
   end
 
   ##

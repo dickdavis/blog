@@ -1,0 +1,10 @@
+- @page = { title: 'Create Project', 'navbar-title': 'Create Project' }
+= render 'layouts/errors', object: @project
+.container
+  .row.justify-content-center.mt-3
+    .col-xs-12.col-md-8
+      .card
+        .card-body
+          = render 'form'
+        .card-footer
+          = link_to 'Back', projects_path

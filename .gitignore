@@ -32,3 +32,5 @@ server.crt
 /public/packs/*
 !/public/packs/.keep
 /node_modules
+
+/docs

@@ -1,0 +1,14 @@
+- @page = { title: 'Show Project', 'navbar-title': 'Show Project' }
+.container
+  .row.justify-content-center.mt-2
+    .col-xs-12.col-md-8
+      .card
+        .card-body
+          - if signed_in?
+            .text-right
+              %div{ class: 'btn-group btn-group-md', role: 'group' }
+                = link_to 'Update', edit_project_path(@project), class: 'btn btn-outline-primary'
+                = link_to 'Delete', project_path(@project), class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' }
+          %h2.card-title= @project.title
+          %p.card-text= markdown(@project.description).html_safe
+          = link_to 'Back', projects_path

@@ -48,9 +48,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Rubocop for code style guidelines
   gem 'rubocop', '~> 0.48.1'
-  # Use Guard to run automated tests
-  gem 'guard', '~> 2.14', '>= 2.14.1'
-  gem 'guard-minitest', '~> 2.4', '>= 2.4.6'
 end
 
 group :production do

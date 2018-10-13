@@ -11,7 +11,7 @@
           = link_to 'Clear Tag Filter', articles_path, class: 'btn btn-outline-primary'
   %hr
   .row#article-tags.justify-content-center
-    %div{ class: 'col-xs-12 col-md-10 col-lg-8' }
+    .col-xs-12.col-md-10.col-lg-8
       .card
         .card-body
           %p.card-text
@@ -20,7 +20,7 @@
   %hr
   - unless @articles.present?
     .row
-      %div{ class: 'col-lg-12' }
+      .col-lg-12
         .card
           .card-body
             .text-center
@@ -30,16 +30,15 @@
     .card-columns
       - @articles.each do |article|
         .card
-          %div{ class: 'card-header text-muted' }= "Last updated: #{article.created_at}"
-          .card-body
+          .card-header
             - if signed_in?
               .text-right
                 %div{ class: 'btn-group btn-group-md', role: 'group' }
                   = link_to 'Update', edit_article_path(article), class: 'btn btn-outline-primary'
                   = link_to 'Delete', article_path(article), class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' }
-              %br
-            %h2{ class: 'card-title text-center' }= article.title
-            %p{ class: 'card-text text-muted' }= article.subtitle
+          .card-body
+            %h2.card-title.text-center= article.title
+            %p.card-text.text-muted= article.subtitle
             %p.card-text= article.summary
             .text-center
               %div{ class: 'btn-group btn-group-md', role: 'group' }

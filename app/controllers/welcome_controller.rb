@@ -9,8 +9,4 @@ class WelcomeController < ApplicationController
   ##
   # GET /about
   def about; end
-
-  ##
-  # GET /projects
-  def projects; end
 end
