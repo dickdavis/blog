@@ -1,5 +1,29 @@
-#flash {
-    .alert {
-        margin-bottom: 0;
+#flash-notice {
+  text-align: center;
+  margin: .5em .5em;
+  padding: 1em;
+}
+
+#flash-notice.success {
+  background-color: $light-green;
+  border: 1px solid $dark-green;
+  border-radius: 5px;
+
+  p {
+    color: $dark-green;
+  }
+}
+
+#flash-notice.failure {
+  background-color: $light-red;
+  border: 1px solid $dark-red;
+  border-radius: 5px;
+
+  ul {
+    margin: 0;
+
+    li {
+      color: $dark-red;
     }
+  }
 }

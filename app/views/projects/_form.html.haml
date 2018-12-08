@@ -1,10 +1,10 @@
 = form_for @project do |f|
-  .form-group
-    =f.label :title
-    %br
-    ~f.text_field :title, class: 'form-control'
-  .form-group
-    =f.label :description
-    %br
-    ~f.text_area :description, class: 'form-control'
-  =f.submit 'Publish', class: 'btn btn-primary'
+  .form
+    .form-group
+      =f.label :title
+      ~f.text_field :title, class: 'form-control'
+    .form-group
+      =f.label :description
+      ~f.text_area :description, class: 'form-control'
+    .form-action
+      =f.submit 'Publish', class: 'btn btn-solid'

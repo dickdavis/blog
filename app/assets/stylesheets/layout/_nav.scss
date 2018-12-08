@@ -1,95 +1,100 @@
-// ======================
-//  Nav
-// ======================
-
-//  Style for menu
-// ======================
-
 nav {
-    #nav-header {
-        width: 100%;
-        background-color: $five;
-        margin: 0;
-        padding: 0;
+  #nav-header {
+    width: 100%;
+    background-color: $grey-five;
+    margin: 0;
+    padding: .5em 0;
+
+    a {
+        font-size: 150%;
+        color: $grey-one;
+        padding: .5em;
+        text-decoration: none;
+
+      i {
+        color: $red;
+      }
+    }
+
+    a.navbar-text {
+      color: $grey-one;
+      font-size: 150%;
+    }
+  }
+
+  #nav-menu {
+    z-index: 9;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    background-color: $grey-five;
+    transform: translateX(-200%);
+    transition: transform .6s ease;
+
+    @media screen and (min-width: $M) {
+      width: 75%;
+    }
+    @media screen and (min-width: $L) {
+      width: 50%;
+    }
+    @media screen and (min-width: $XL) {
+      width: 35%;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      li {
+        form {
+          vertical-align: center;
+          display: flex;
+          padding: .5em;
+
+          input[type="text"] {
+              width: 75%;
+              margin: .1em;
+          }
+
+          input[type="submit"] {
+              width: 25%;
+              margin: .1em;
+          }
+        }
+
+        br {
+          clear: both;
+        }
+
         a {
-            font-size: 150%;
-            color: $one;
-            padding: .5em;
-            text-decoration: none;
-            i {
-              color: $red;
-            }
+          padding-top: 1em;
+          padding-bottom: 1em;
+          display: block;
+          font-size: 125%;
+          text-decoration: none;
+          color: $grey-one;
+
+          &:hover {
+            color: $red;
+            background-color: $grey-two;
+          }
+
+          &:active {
+            color: $red;
+            background-color: $grey-one;
+          }
         }
-        a.navbar-text {
-          color: $one;
-          font-size: 150%;
-        }
+      }
+
+      .active {
+        color: $grey-one;
+        background-color: $grey-one;
+      }
     }
-    #nav-menu {
-        z-index: 9;
-        position: absolute;
-        width: 100%;
-        text-align: center;
-        background-color: $five;
-        transform: translateX(-200%);
-        transition: transform .6s ease;
-        @include media-breakpoint-up(xs) {
-            width: 100%;
-        }
-        @include media-breakpoint-up(sm) {
-            width: 75%;
-        }
-        @include media-breakpoint-up(md) {
-            width: 50%;
-        }
-        @include media-breakpoint-up(lg) {
-            width: 35%;
-        }
-        ul {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-            li {
-                form {
-                    vertical-align: center;
-                    display: block;
-                    padding: .5em;
-                    input[type="text"] {
-                        float: left;
-                        width: 75%;
-                    }
-                    input[type="submit"] {
-                        width: 25%;
-                        float: right;
-                    }
-                }
-                br {
-                    clear: both;
-                }
-                a {
-                    padding-top: 1em;
-                    padding-bottom: 1em;
-                    display: block;
-                    font-size: 125%;
-                    text-decoration: none;
-                    color: $one;
-                    &:hover {
-                        color: $red;
-                        background-color: $two;
-                    }
-                    &:active {
-                        color: $red;
-                        background-color: $one;
-                    }
-                }
-            }
-            .active {
-                color: $one;
-                background-color: $one;
-            }
-        }
-    }
-    #nav-menu.open-menu {
-        transform: translateX(0);
-    }
+  }
+
+  #nav-menu.open-menu {
+    transform: translateX(0);
+  }
 }

@@ -1,0 +1,25 @@
+#link-controls {
+  margin: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .btn-solid {
+    color: white;
+    background-color: $red;
+
+    &:hover {
+      background-color: $dark-red;
+    }
+  }
+
+  .btn-outline {
+    color: $red;
+    background-color: transparent;
+
+    &:hover {
+      background-color: $red;
+      color: white;
+    }
+  }
+}

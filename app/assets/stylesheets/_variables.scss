@@ -1,49 +1,23 @@
-// ======================
-//  Variables
-// ======================
+$grey-one: hsla(0, 0%, 93%, 1);
+$grey-two: hsla(0, 0%, 73%, 1);
+$grey-three: hsla(0, 0%, 60%, 1);
+$grey-four: hsla(0, 0%, 47%, 1);
+$grey-five: hsla(0, 0%, 33%, 1);
+$grey-six: hsla(0, 0%, 5%, 1);
 
-//  Color Palette
-// ======================
+$light-green: hsla(128, 68%, 90%, 1);
+$dark-green: hsla(128, 68%, 27%, 1);
 
-// Color One: 
-$one: hsla(0, 0%, 87%, 1);
-
-// Color Two: 
-$two: hsla(0, 0%, 73%, 1);
-
-// Color Three: TBD
-$three: hsla(0, 0%, 60%, 1);
-
-// Color Four: 
-$four: hsla(0, 0%, 47%, 1);
-
-// Color Five: 
-$five: hsla(0, 0%, 33%, 1);
-
-// Green Color:
-$l-green: hsla(128, 68%, 91%, 1);
-
-$red-gold: hsla(17, 34%, 64%, 1);
-
-$light-red: hsla(6, 78%, 77, 1);
-
+$light-red: hsla(6, 78%, 90%, 1);
 $red: hsla(6, 78%, 57%, 1);
-
 $dark-red: hsla(6, 78%, 47%, 1);
-
 $darker-red: hsla(6, 78%, 27%, 1);
 
-// Semantic Colors
-$safe: hsla(100, 80%, 51%, 1);
-$caution: hsla(35, 80%, 51%, 1);
-$danger: hsla(0, 80%, 51%, 1);
+$light-blue: #cce5ff;
+$blue: #0070BB;
+$dark-blue: #004085;
 
-
-
-//  Viewport Sizes
-// ======================
-$XL: 1260px;
-$L: 1070px;
-$M: 750px;
-$S: 590px;
-$XS: 420px;
+$XL: 1200px;
+$L: 992px;
+$M: 768px;
+$S: 576px;

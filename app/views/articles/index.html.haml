@@ -1,47 +1,30 @@
-- @page = { title: 'Articles', 'navbar-title': 'Articles' }
-.container
-  .row#article-controls.justify-content-center.mt-2
-    %div{ class: 'col-xs-12 text-xs-center', id: 'new-article' }
-      %div{ class: 'btn-group btn-group-md', role: 'group' }
-        -if signed_in?
-          = link_to 'New Article', new_article_path, class: 'btn btn-primary'
-        - if params[:search]
-          = link_to 'Clear Search Terms', articles_path, class: 'btn btn-outline-primary'
-        - if params[:tag]
-          = link_to 'Clear Tag Filter', articles_path, class: 'btn btn-outline-primary'
-  %hr
-  .row#article-tags.justify-content-center
-    .col-xs-12.col-md-10.col-lg-8
-      .card
-        .card-body
-          %p.card-text
-            - tag_cloud Tag.counts, %w{tag1 tag2 tag3 tag4} do |tag, css_class|
-              = link_to tag.name, tag_path(tag.name), class: css_class
-  %hr
+%section
+  .controls
+    -if signed_in?
+      = link_to 'New Article', new_article_path, class: 'btn btn-solid'
+    - if params[:search]
+      = link_to 'Clear Search Terms', articles_path, class: 'btn btn-outline'
+    - if params[:tag]
+      = link_to 'Clear Tag Filter', articles_path, class: 'btn btn-outline'
+  #article-tags
+    #articles-tag-cloud
+      - tag_cloud Tag.counts, %w{tag1 tag2 tag3 tag4} do |tag, css_class|
+        = link_to tag.name, tag_path(tag.name), class: css_class
   - unless @articles.present?
     .row
-      .col-lg-12
-        .card
-          .card-body
-            .text-center
-              %h2.card-title There are No Articles to Display
-              %p.card-text Try using a different search term, or you can click on one of the tags to explore related articles.
+      %h2.card-title There are No Articles to Display
+      %p.card-text Try using a different search term, or you can click on one of the tags to explore related articles.
   - else
-    .card-columns
-      - @articles.each do |article|
-        .card
-          .card-header
-            - if signed_in?
-              .text-right
-                %div{ class: 'btn-group btn-group-md', role: 'group' }
-                  = link_to 'Update', edit_article_path(article), class: 'btn btn-outline-primary'
-                  = link_to 'Delete', article_path(article), class: 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' }
-          .card-body
-            %h2.card-title.text-center= article.title
-            %p.card-text.text-muted= article.subtitle
-            %p.card-text= article.summary
-            .text-center
-              %div{ class: 'btn-group btn-group-md', role: 'group' }
-                = link_to 'Read', article_path(article), class: 'btn btn-outline-primary'
-          .card-footer
+    - @articles.each do |article|
+      %article.article-preview.card
+        .card-body
+          - if signed_in?
+            .article-actions
+              = link_to 'Update', edit_article_path(article)
+              \|
+              = link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
+          %h2.article-title= link_to article.title, article_path(article)
+          %h4.article-subtitle= article.subtitle
+          %p.article-summary= article.summary
+          .tags
             = raw tag_links article.all_tags

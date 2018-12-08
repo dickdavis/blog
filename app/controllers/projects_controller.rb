@@ -8,71 +8,75 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
 
+  ##
   # GET /projects
-  # GET /projects.json
   def index
+    @page = { title: 'Projects', 'navbar-title': 'Projects' }
     @projects = Project.all
   end
 
+  ##
   # GET /projects/1
-  # GET /projects/1.json
-  def show; end
+  def show
+    @page = { title: 'Show Project', 'navbar-title': 'Show Project' }
+  end
 
+  ##
   # GET /projects/new
   def new
+    @page = { title: 'Create Project', 'navbar-title': 'Create Project' }
     @project = Project.new
   end
 
+  ##
   # GET /projects/1/edit
-  def edit; end
+  def edit
+    @page = { title: 'Edit Project', 'navbar-title': 'Edit Project' }
+  end
 
+  ##
   # POST /projects
-  # POST /projects.json
   def create
     @project = Project.new(project_params)
 
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    if @project.save
+      flash[:type] = 'success'
+      redirect_to @project, notice: 'Project was successfully created.'
+    else
+      flash[:type] = 'failure'
+      redirect_to new_project_path, notice: @project.errors.full_messages
     end
   end
 
+  ##
   # PATCH/PUT /projects/1
-  # PATCH/PUT /projects/1.json
   def update
-    respond_to do |format|
-      if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @project }
-      else
-        format.html { render :edit }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    if @project.update(project_params)
+      flash[:type] = 'success'
+      redirect_to @project, notice: 'Project was successfully updated.'
+    else
+      flash[:type] = 'failure'
+      redirect_to edit_project_path, notice: @project.errors.full_messages
     end
   end
 
+  ##
   # DELETE /projects/1
-  # DELETE /projects/1.json
   def destroy
     @project.destroy
-    respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:type] = 'success'
+    redirect_to projects_url, notice: 'Project was successfully destroyed.'
   end
 
   private
 
+  ##
   # Use callbacks to share common setup or constraints between actions.
   def set_project
     @project = Project.find(params[:id])
   end
 
+  ##
   # Never trust parameters from the scary internet, only allow the white list through.
   def project_params
     params.require(:project).permit(:title, :description)

@@ -1,29 +1,20 @@
-%footer.footer
-  .container-fluid
-    .row#footer-heading
-      %div{ class: 'col-lg-12' }
-        %h2 Connect with RV Davis
-    .row#footer-break
-      %div{ class: 'col-lg-12' }
-        %hr{ class: 'my-2' }
-    .row#footer-icons
-      %div{ class: 'col-sm-12 footer-icon' }
-        %a{ href: 'dick@rvdavis.me' }
-          = icon('envelope', class: 'fa-4x')
-        %br
+%footer
+  #footer-heading
+    %h2 Connect with RV Davis
+  #footer-icons
+    .footer-icon
+      %a{ href: 'dick@rvdavis.me' }
+        = icon('envelope', class: 'fa-4x')
+      %p
         = link_to 'Public Key', 'http://pgp.mit.edu/pks/lookup?op=get&search=0x0997BADFB2E6E15E'
-        %p A7F7 F47B C0DD 7C37 C943  AD99 0997 BADF B2E6 E15E
-      %div{ class: 'col-sm-12 footer-icon' }
-        %a{ href: 'https://t.me/rvdavis_me_blog' }
-          = icon('telegram', class: 'fa-4x')
-      %div{ class: 'col-sm-12 footer-icon' }
-        %a{ href: 'https://github.com/d3d1rty' }
-          = icon('github', class: 'fa-4x')
-      %div{ class: 'col-sm-12 footer-icon' }
-        %a{ href: 'https://stackoverflow.com/users/5886961/richard-davis?tab=profile' }
-          = icon('stack-overflow', class: 'fa-4x')
-      %div{ class: 'col-sm-12 footer-icon' }
-        %a{ href: 'https://www.linkedin.com/in/rvdavis' }
-          = icon('linkedin', class: 'fa-4x')
-    %div{ class: 'row justify-content-end', id: 'footer-copyright' }
-      %p &copy; Copyright 2016-#{DateTime.now.year} Richard Davis
+      %p A7F7 F47B C0DD 7C37 C943  AD99 0997 BADF B2E6 E15E
+    .footer-icon
+      %a{ href: 'https://github.com/d3d1rty', class: 'footer-icon' }
+        = icon('github', class: 'fa-4x')
+    .footer-icon
+      %a{ href: 'https://stackoverflow.com/users/5886961/richard-davis?tab=profile', class: 'footer-icon' }
+        = icon('stack-overflow', class: 'fa-4x')
+    .footer-icon
+      %a{ href: 'https://www.linkedin.com/in/rvdavis', class: 'footer-icon' }
+        = icon('linkedin', class: 'fa-4x')
+  %p#footer-copyright &copy; Copyright 2016-#{DateTime.now.year} Richard Davis

@@ -1,16 +1,67 @@
-@import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "variables";
-@import "buttons";
 @import "typography";
+@import "buttons";
+@import "forms";
+@import "cards";
+@import "images";
 @import "layout/layout";
 @import "articles";
+@import "links";
+@import "projects";
+@import "about";
 
 html, body {
-  background-color: $one;
-  .jumbotron {
-    background-color: $red;
-    color: white;
+  margin: 0;
+  background-color: $grey-one;
+
+  .controls {
+    margin: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .btn-solid {
+      color: white;
+      background-color: $red;
+
+      &:hover {
+        background-color: $dark-red;
+      }
+    }
+
+    .btn-outline {
+      color: $red;
+      background-color: transparent;
+
+      &:hover {
+        background-color: $red;
+        color: white;
+      }
+    }
+  }
+
+  .flex-container {
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    .flex-column {
+      width: 90%;
+      height: auto;
+      margin: .5em;
+
+      @media screen and (min-width: $M) {
+        width: 45%;
+      }
+
+      @media screen and (min-width: $L) {
+        width: 25%;
+      }
+      .card { width: 100%; }
+    }
   }
 }
+

@@ -1,7 +1,8 @@
-- if flash[:message]
-  #flash
-    - flash.each do |key, value|
-      %div{ class: "alert alert-success alert-dismissible fade show", role: 'alert' }
-        %button{ type: 'button', class: 'close', 'data-dismiss': 'alert', 'aria-label': 'Close' }
-          %span{ 'aria-hidden': 'true' } &times;
-        .text-center=h value
+- if flash[:notice]
+  #flash-notice{ class: "#{flash[:type]}" }
+    - if flash[:type] == 'failure'
+      - flash[:notice].each do |msg|
+        %ul
+          %li= msg
+    - else
+      %p= flash[:notice]

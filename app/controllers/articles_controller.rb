@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
+    @page = { title: 'Articles', 'navbar-title': 'Articles' }
     @articles = if params[:tag]
                   Article.tagged_with(params[:tag]).order(updated_at: :desc)
                 elsif params[:search]
@@ -25,32 +26,33 @@ class ArticlesController < ApplicationController
   ##
   # GET /articles/1
   # GET /articles/1.json
-  def show; end
+  def show
+    @page = { title: @article.title, 'navbar-title': 'View Article' }
+  end
 
   ##
   # GET /articles/new
   def new
+    @page = { title: 'Create Article', 'navbar-title': 'Create Article' }
     @article = Article.new
   end
 
   ##
   # GET /articles/1/edit
-  def edit; end
+  def edit
+    @page = { title: 'Edit Article', 'navbar-title': 'Edit Article' }
+  end
 
   ##
   # POST /articles
-  # POST /articles.json
   def create
     @article = Article.new(article_params)
-    respond_to do |format|
-      if @article.save
-        flash[:message] = 'Article was successfully created.'
-        format.html { redirect_to @article }
-        format.json { render :show, status: :created, location: @article }
-      else
-        format.html { render :new }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    if @article.save
+      flash[:type] = 'success'
+      redirect_to @article, notice: 'Article was successfully created.'
+    else
+      flash[:type] = 'failure'
+      redirect_to new_article_path, notice: @article.errors.full_messages
     end
   end
 
@@ -58,15 +60,12 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-    respond_to do |format|
-      if @article.update(article_params)
-        flash[:message] = 'Article was successfully updated.'
-        format.html { redirect_to @article }
-        format.json { render :show, status: :ok, location: @article }
-      else
-        format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    if @article.update(article_params)
+      flash[:type] = 'success'
+      redirect_to @article, notice: 'Article was successfully updated.'
+    else
+      flash[:type] = 'failure'
+      redirect_to edit_article_path(@article), notice: @article.errors.full_messages
     end
   end
 

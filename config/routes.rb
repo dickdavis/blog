@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   resources :articles
   get 'feed', to: 'feeds#feed'
   get 'tags/:tag', to: 'articles#index', as: 'tag'
-  get 'links' => 'links#index'
-  get 'about' => 'welcome#about'
-  get 'projects' => 'projects#index'
-  root 'welcome#about'
+  get 'about', to: 'welcome#about'
+  root 'articles#index'
 end

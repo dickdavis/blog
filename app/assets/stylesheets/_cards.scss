@@ -1,0 +1,67 @@
+.card {
+  background-color: transparent;
+  word-wrap: break-word;
+  width: 95%;
+  margin: 1em auto;
+  padding: 0;
+
+  @media screen and (min-width: $M) {
+    width: 75%;
+    margin: .5em auto;
+  }
+
+  @media screen and (min-width: $L) {
+    width: 45%;
+    margin: .5em auto;
+  }
+
+  .card-body, .card-body-alt {
+    background-color: white;
+    padding: 1em;
+  }
+
+  .card-body {
+    border: 1px solid $grey-two;
+    border-radius: 5px;
+  }
+
+  .card-body-alt {
+    border-top: 1px solid $grey-four;
+    border-left: 1px solid $grey-four;
+    border-right: 1px solid $grey-four;
+    border-radius: 5px 5px 0 0;
+
+    a {
+      color: $red;
+
+      &:hover {
+        color: $dark-red;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .card-footer {
+    background-color: $grey-one;
+    margin: 0;
+    padding: .5em;
+    border: 1px solid $grey-four;
+    border-radius: 0 0 5px 5px;
+    font-size: 85%;
+    line-height: 1.5;
+    text-align: center;
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: $red;
+
+      &:hover {
+        color: $dark-red;
+        text-decoration: none;
+      }
+    }
+  }
+}

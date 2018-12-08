@@ -1,17 +1,137 @@
-// Place all the styles related to the Articles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#article-controls {
+  margin: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
 
-.tag1 { font-size: 1.0em }
-.tag2 { font-size: 1.2em }
-.tag3 { font-size: 1.4em }
-.tag4 { font-size: 1.6em }
+  .btn-solid {
+    color: white;
+    background-color: $red;
 
-.card-columns {
-    @include media-breakpoint-only(sm) {
-        column-count: 1;
+    &:hover {
+      background-color: $dark-red;
     }
-    @include media-breakpoint-only(md) {
-        column-count: 2;
+  }
+
+  .btn-outline {
+    color: $red;
+    background-color: transparent;
+
+    &:hover {
+      background-color: $red;
+      color: white;
     }
+  }
+}
+
+#articles-tag-cloud {
+  width: 75%;
+  margin: 1em auto 3em auto;
+  padding: 1em;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .tag1 { font-size: 1.0em }
+  .tag2 { font-size: 1.2em }
+  .tag3 { font-size: 1.4em }
+  .tag4 { font-size: 1.6em }
+}
+
+#article-display {
+  #article-header {
+    padding: .5em;
+
+    @media screen and (min-width: $M) {
+      padding: 1em;
+    }
+    @media screen and (min-width: $L) {
+      padding: 2em;
+    }
+    @media screen and (min-width: $XL) {
+      padding: 3em;
+    }
+
+    h1 {
+      font-size: 250%;
+      margin: 1em auto 0 auto;
+    }
+
+    h4 {
+      font-size: 130%;
+      text-align: center;
+      margin: 0 auto;
+      color: $grey-five;
+    }
+  }
+
+  #article-footer {
+    text-align: center;
+    width: 75%;
+    margin: 2em auto 1em auto;
+
+    a {
+      img {
+        max-width: 100%;
+        height: auto;
+        margin: auto;
+      }
+    }
+
+    p {
+    }
+  }
+}
+
+.article-preview {
+  margin-bottom: 3em;
+
+  .article-actions {
+    text-align: right;
+  }
+
+  .article-title {
+    margin-bottom: 0;
+  }
+
+  .article-subtitle {
+    margin: 0 0 1em 0;
+    color: $grey-five;
+  }
+
+  .article-button {
+    text-align: center;
+  }
+
+  hr {
+    margin: 2em auto;
+    width: 75%;
+    color: $grey-two;
+  }
+}
+
+.tags {
+  margin: .5em 0 0 0;
+
+  a {
+    text-decoration: none;
+    background-color: $red;
+    color: white;
+    border: 1px solid $dark-red;
+    border-radius: 3px;
+    padding: .25em;
+
+    &:hover {
+      background-color: white;
+      color: $red;
+      -webkit-transition: background-color .5s;
+      transition: background-color .5s;
+    }
+  }
 }

@@ -1,22 +1,19 @@
 = form_for @article do |f|
-  .form-group
-    =f.label :title
-    %br
-    =f.text_field :title, class: 'form-control'
-  .form-group
-    =f.label :subtitle
-    %br
-    =f.text_area :subtitle, class: 'form-control'
-  .form-group
-    =f.label 'Tags'
-    %br
-    =f.text_field :all_tags, class: 'form-control', placeholder: 'Enter tags separated by commas...'
-  .form-group
-    =f.label :summary
-    %br
-    =f.text_area :summary, class: 'form-control'
-  .form-group
-    =f.label :text
-    %br
-    ~f.text_area :text, class: 'form-control'
-  =f.submit 'Post', class: 'btn btn-primary'
+  .form
+    .form-group
+      =f.label :title
+      =f.text_field :title, class: 'form-control'
+    .form-group
+      =f.label :subtitle
+      =f.text_field :subtitle, class: 'form-control'
+    .form-group
+      =f.label 'Tags'
+      =f.text_field :all_tags, class: 'form-control', placeholder: 'Enter tags separated by commas...'
+    .form-group
+      =f.label :summary
+      =f.text_area :summary, class: 'form-control'
+    .form-group
+      =f.label :text
+      ~f.text_area :text, class: 'form-control'
+    .form-action
+      =f.submit 'Post', class: 'btn btn-primary'

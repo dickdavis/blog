@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2', '>= 5.2.1'
+gem 'rails', '~> 5.2', '>= 5.2.2'
 # Use dotenv to load environment variables
 gem 'dotenv-rails', '~> 2.5', groups: %i[development test]
 # Use postgresql as the database for Active Record
@@ -11,8 +11,6 @@ gem 'pg', '~> 1.0'
 gem 'puma', '~> 3.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Webpacker for assets
-gem 'webpacker', '~> 3.5', '>= 3.5.5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Uglifier as compressor for JavaScript assets
@@ -29,10 +27,6 @@ gem 'redcarpet', '~> 3.4'
 gem 'coderay', '~> 1.1', '>= 1.1.2'
 # Use clearance for authentication
 gem 'clearance', '~> 1.16', '>= 1.16.1'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

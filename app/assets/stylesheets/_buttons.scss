@@ -1,33 +1,33 @@
-// ======================
-//  Buttons
-// ======================
+.btn {
+  padding: .5em;
+  font-size: 110%;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
 
-.btn-primary {
+.btn-solid {
+  color: white;
   background-color: $red;
-  border-color: $red;
+  border: 2px solid $red;
+
   &:hover {
     background-color: $dark-red;
-    border-color: $dark-red;
+    -webkit-transition: background-color .5s;
+    transition: background-color .5s;
   }
-  &:active {
-    background-color: $darker-red;
-    border-color: $darker-red;
-  }
-}
-.active {
-  background-color: $darker-red;
-  border-color: $darker-red;
 }
 
-.btn-outline-primary {
-  border-color: $red;
+.btn-outline {
   color: $red;
+  background-color: transparent;
+  border: 2px solid $dark-red;
+
   &:hover {
-    border-color: $red;
-    background-color: $red
-  }
-  &:active {
-    background-color: $dark-red;
-    border-color: $dark-red;
+    background-color: $red;
+    color: white;
+    -webkit-transition: background-color .5s;
+    transition: background-color .5s;
   }
 }

@@ -1,10 +1,5 @@
-- @page = { title: 'Create Article', 'navbar-title': 'Create Article' }
-= render 'layouts/errors', object: @article
-.container
-  .row.justify-content-center.mt-3
-    .col-xs-12.col-md-10
-      .card
-        .card-body
-          = render 'form'
-        .card-footer
-          = link_to 'Back', articles_path
+.card
+  .card-body-alt
+    = render 'form'
+  .card-footer
+    = link_to 'Back', articles_path

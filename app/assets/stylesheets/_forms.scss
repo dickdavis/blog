@@ -1,0 +1,53 @@
+.form {
+  margin: auto;
+
+  .form-errors {
+    text-align: center;
+    color: $darker-red;
+    background-color: $red;
+    margin: 0 .5em 1em .5em;
+    padding: 1em;
+    border: 1px solid $dark-red;
+
+    ul {
+      margin: .5em;
+    }
+  }
+
+  .form-group {
+    margin-top: 1em;
+    display: flex;
+    flex-flow: row wrap;
+
+    label {
+      margin: auto;
+      color: $grey-six;
+      align-self: center;
+      width: 90%;
+
+      @media screen and (min-width: $M) {
+        width: 30%;
+        text-align: center;
+      }
+    }
+
+    input, textarea {
+      margin: auto;
+      width: 90%;
+      box-sizing: border-box;
+
+      @media screen and (min-width: $M) {
+        width: 70%;
+      }
+    }
+
+    textarea {
+      height: 30vh;
+    }
+  }
+
+  .form-action {
+    margin-top: 1em;
+    text-align: center;
+  }
+}
