@@ -11,9 +11,11 @@
       - tag_cloud Tag.counts, %w{tag1 tag2 tag3 tag4} do |tag, css_class|
         = link_to tag.name, tag_path(tag.name), class: css_class
   - unless @articles.present?
-    .row
-      %h2.card-title There are No Articles to Display
-      %p.card-text Try using a different search term, or you can click on one of the tags to explore related articles.
+    .card
+      .card-body
+        .text-center
+          %h2.card-title There are No Articles to Display
+          %p.card-text Try using a different search term, or you can click on one of the tags to explore related articles.
   - else
     - @articles.each do |article|
       %article.article-preview.card

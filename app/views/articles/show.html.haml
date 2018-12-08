@@ -1,23 +1,24 @@
-%article.page#article-display
-  #article-header
-    %h1.article-title= @article.title
-    %h4.article-subtitle= @article.subtitle
-  #article-body
-    - if signed_in?
-      = link_to 'Update', edit_article_path(@article)
-      \|
-      = link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }
-    %p.text-muted= "Published: #{@article.created_at.strftime('%B %d, %Y')}"
-    = markdown(@article.text).html_safe
-    .tags
-      = raw tag_links @article.all_tags
-  #article-footer
-    %a{ rel: 'license', href: 'http://creativecommons.org/licenses/by-sa/4.0/' }
-      %img{ alt: 'Creative Commons License', style: 'border-width:0', src: 'https://i.creativecommons.org/l/by-sa/4.0/88x31.png' }
-    %p.text-muted
-      %span{ 'xmlns:dct': 'http://purl.org/dc/terms/', property: 'dct:title' }= "\"#{@article.title}\""
-      by
-      %a{ 'xmlns:cc': 'http://creativecommons.org/ns#', href: 'http://www.rvdavis.me/', property: 'cc:attributionName', rel: 'cc:attributionURL' } Richard Davis
-      is licensed under a
+%article.card#article-card
+  .card-body
+    #article-header
+      %h1.article-title= @article.title
+      %h4.article-subtitle= @article.subtitle
+    #article-body
+      - if signed_in?
+        = link_to 'Update', edit_article_path(@article)
+        \|
+        = link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }
+      %p.text-muted= "Published: #{@article.created_at.strftime('%B %d, %Y')}"
+      = markdown(@article.text).html_safe
+      .tags
+        = raw tag_links @article.all_tags
+    #article-footer
       %a{ rel: 'license', href: 'http://creativecommons.org/licenses/by-sa/4.0/' }
-        Creative Commons Attribution-ShareAlike 4.0 International License.
+        %img{ alt: 'Creative Commons License', style: 'border-width:0', src: 'https://i.creativecommons.org/l/by-sa/4.0/88x31.png' }
+      %p.text-muted
+        %span{ 'xmlns:dct': 'http://purl.org/dc/terms/', property: 'dct:title' }= "\"#{@article.title}\""
+        by
+        %a{ 'xmlns:cc': 'http://creativecommons.org/ns#', href: 'http://www.rvdavis.me/', property: 'cc:attributionName', rel: 'cc:attributionURL' } Richard Davis
+        is licensed under a
+        %a{ rel: 'license', href: 'http://creativecommons.org/licenses/by-sa/4.0/' }
+          Creative Commons Attribution-ShareAlike 4.0 International License.
