@@ -9,20 +9,14 @@
         %p.card-text Projects have not been uploaded yet; check back later.
 - else
   .flex-container
-    - project_columns = [[], [], []]
+    - project_columns = [[], [], [], []]
     - index = 0
     - @projects.each do |project|
-      - index = 0 if index == 3
-      - project_columns[index].push(project)
-      - index += 1
-    - project_columns.each do |column|
-      .flex-column
-        - column.each do |project|
-          .card
-            .card-body
-              - if signed_in?
-                = link_to 'Update', edit_project_path(project)
-                = link_to 'Delete', project_path(project), method: :delete, data: { confirm: 'Are you sure?' }
-              .text-center
-                %h2.card-title= project.title
-              %p.card-text~ markdown(project.description).html_safe
+      .card.flex-item
+        .card-body
+          - if signed_in?
+            = link_to 'Update', edit_project_path(project)
+            = link_to 'Delete', project_path(project), method: :delete, data: { confirm: 'Are you sure?' }
+          .text-center
+            %h2.card-title= project.title
+          %p.card-text~ markdown(project.description).html_safe

@@ -48,8 +48,8 @@ html, body {
     flex-flow: row wrap;
     justify-content: center;
 
-    .flex-column {
-      width: 90%;
+    .flex-item {
+      width: 100%;
       height: auto;
       margin: .5em;
 
@@ -58,9 +58,8 @@ html, body {
       }
 
       @media screen and (min-width: $L) {
-        width: 25%;
+        width: 30%;
       }
-      .card { width: 100%; }
     }
   }
 }
