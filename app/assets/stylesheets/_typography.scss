@@ -54,7 +54,6 @@ ul {
 .code, code, pre, pre * {
   font-family: 'inconsolataregular';
   background-color: $grey-one;
-  white-space: nowrap;
 }
 
 .code {
@@ -67,6 +66,7 @@ pre {
   margin: 0;
   padding: 1em;
   border-left: 2px solid $red;
+  white-space: nowrap;
 }
 
 code {
