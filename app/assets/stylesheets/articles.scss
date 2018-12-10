@@ -92,9 +92,22 @@
 
     a {
       img {
-        width: 15%;
+        width: 40%;
         height: auto;
         margin: auto;
+
+        @media screen and (min-width: $S) {
+          width: 35%;
+        }
+        @media screen and (min-width: $M) {
+          width: 30%;
+        }
+        @media screen and (min-width: $L) {
+          width: 25%;
+        }
+        @media screen and (min-width: $XL) {
+          width: 15%;
+        }
       }
     }
 
