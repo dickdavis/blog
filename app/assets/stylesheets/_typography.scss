@@ -54,12 +54,12 @@ ul {
 .code, code, pre, pre * {
   font-family: 'inconsolataregular';
   background-color: $grey-one;
+  overflow: scroll;
 }
 
 .code {
   padding: 0;
   vertical-align: text-bottom;
-  overflow: scroll;
 }
 
 pre {
