@@ -54,6 +54,7 @@ ul {
 .code, code, pre, pre * {
   font-family: 'inconsolataregular';
   background-color: $grey-one;
+  white-space: nowrap;
 }
 
 .code {
@@ -70,7 +71,6 @@ pre {
 
 code {
   padding: .25em;
-  white-space: nowrap;
 }
 
 blockquote {
