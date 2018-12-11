@@ -1,2 +1,11 @@
 #project-controls {
 }
+
+#projects-container {
+  .card {
+    .card-body {
+      height: 225px;
+      overflow: hidden;
+    }
+  }
+}

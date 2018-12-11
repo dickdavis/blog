@@ -1,11 +1,11 @@
 %section
-  .controls
-    -if signed_in?
+  -if signed_in?
+    .controls
       = link_to 'New Article', new_article_path, class: 'btn btn-solid'
-    - if params[:search]
-      = link_to 'Clear Search Terms', articles_path, class: 'btn btn-outline'
-    - if params[:tag]
-      = link_to 'Clear Tag Filter', articles_path, class: 'btn btn-outline'
+      - if params[:search]
+        = link_to 'Clear Search Terms', articles_path, class: 'btn btn-outline'
+      - if params[:tag]
+        = link_to 'Clear Tag Filter', articles_path, class: 'btn btn-outline'
   #article-tags
     #articles-tag-cloud
       - tag_cloud Tag.counts, %w{tag1 tag2 tag3 tag4} do |tag, css_class|
