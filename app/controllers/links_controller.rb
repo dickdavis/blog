@@ -13,7 +13,7 @@ class LinksController < ApplicationController
   # GET /links
   def index
     @page = { title: 'Links', 'navbar-title': 'Links' }
-    @links = Link.all.order(updated_at: :desc)
+    @links = Link.all.order(created_at: :desc)
   end
 
   ##

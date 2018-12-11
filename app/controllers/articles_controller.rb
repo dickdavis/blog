@@ -15,11 +15,11 @@ class ArticlesController < ApplicationController
   def index
     @page = { title: 'Articles', 'navbar-title': 'Articles' }
     @articles = if params[:tag]
-                  Article.tagged_with(params[:tag]).order(updated_at: :desc)
+                  Article.tagged_with(params[:tag]).order(created_at: :desc)
                 elsif params[:search]
-                  Article.search(params[:search]).order(updated_at: :desc)
+                  Article.search(params[:search]).order(created_at: :desc)
                 else
-                  Article.all.order(updated_at: :desc)
+                  Article.all.order(created_at: :desc)
                 end
   end
 
