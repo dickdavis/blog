@@ -1,32 +1,39 @@
-%section
+%section#articles-index-content
   -if signed_in?
-    .controls
+    #article-controls.controls
       = link_to 'New Article', new_article_path, class: 'btn btn-solid'
+  %section#articles-previews
+    - unless @articles.present?
+      .card
+        .card-body
+          .text-center
+            %h2.card-title There are No Articles to Display
+            %p.card-text Try using a different search term, or you can click on one of the tags to explore related articles.
+    - else
+      - @articles.each do |article|
+        %article.article-preview.card
+          .card-body
+            - if signed_in?
+              .article-actions
+                = link_to 'Update', edit_article_path(article)
+                \|
+                = link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
+            %h2.article-title= link_to article.title, article_path(article)
+            %h4.article-subtitle= article.subtitle
+            %p.article-summary= article.summary
+            .tags
+              = raw tag_links article.all_tags
+  %section#articles-sidebar
+    #articles-search
       - if params[:search]
-        = link_to 'Clear Search Terms', articles_path, class: 'btn btn-outline'
-      - if params[:tag]
-        = link_to 'Clear Tag Filter', articles_path, class: 'btn btn-outline'
-  #article-tags
+        .controls
+          = link_to 'Clear Search Terms', articles_path, class: 'btn btn-outline'
+      = form_tag(articles_path, method: 'get', class: 'form-inline', id: 'nav-search') do
+        = text_field_tag :search, params[:search], placeholder: 'Search articles...', class: 'form-control', id: 'nav-search-box'
+        = submit_tag 'Search', class: 'btn btn-solid'
     #articles-tag-cloud
+      - if params[:tag]
+        .controls
+          = link_to 'Clear Tag Filter', articles_path, class: 'btn btn-outline'
       - tag_cloud Tag.counts, %w{tag1 tag2 tag3 tag4} do |tag, css_class|
         = link_to tag.name, tag_path(tag.name), class: css_class
-  - unless @articles.present?
-    .card
-      .card-body
-        .text-center
-          %h2.card-title There are No Articles to Display
-          %p.card-text Try using a different search term, or you can click on one of the tags to explore related articles.
-  - else
-    - @articles.each do |article|
-      %article.article-preview.card
-        .card-body
-          - if signed_in?
-            .article-actions
-              = link_to 'Update', edit_article_path(article)
-              \|
-              = link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
-          %h2.article-title= link_to article.title, article_path(article)
-          %h4.article-subtitle= article.subtitle
-          %p.article-summary= article.summary
-          .tags
-            = raw tag_links article.all_tags

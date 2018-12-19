@@ -1,64 +1,124 @@
+#articles-index-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1em;
+
+  #article-controls {
+    width: 100%;
+    margin: 0 auto .5em auto;
+
+    .btn-solid {
+      color: white;
+      background-color: $red;
+
+      &:hover {
+        background-color: $dark-red;
+      }
+    }
+
+    .btn-outline {
+      color: $red;
+      background-color: transparent;
+
+      &:hover {
+        background-color: $red;
+        color: white;
+      }
+    }
+  }
+
+  #articles-sidebar {
+    flex: 30%;
+
+    @media screen and (min-width: $M) {
+    }
+
+    #articles-search {
+      form {
+        vertical-align: center;
+        display: flex;
+        padding: .5em;
+
+        input[type="text"] {
+          flex: 75%;
+          margin: .1em;
+        }
+
+        input[type="submit"] {
+          flex: 20%;
+          margin: .1em;
+        }
+      }
+
+      br {
+        clear: both;
+      }
+    }
+
+    #articles-tag-cloud {
+      width: 90%;
+      margin: auto;
+      padding: 1em;
+      text-align: center;
+
+      a {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .controls {
+        .btn { text-decoration: none; }
+      }
+
+      .tag1 { font-size: 1.0em }
+      .tag2 { font-size: 1.2em }
+      .tag3 { font-size: 1.4em }
+      .tag4 { font-size: 1.6em }
+    }
+  }
+
+  #articles-previews {
+    flex: 65%;
+
+    .article-preview {
+      width: 100%;
+      margin-bottom: 1em;
+
+      .article-actions {
+        text-align: right;
+      }
+
+      .article-title {
+        margin-bottom: 0;
+      }
+
+      .article-subtitle {
+        margin: 0 0 1em 0;
+        color: $grey-five;
+      }
+
+      .article-button {
+        text-align: center;
+      }
+
+      hr {
+        margin: 2em auto;
+        width: 75%;
+        color: $grey-two;
+      }
+    }
+  }
+}
+
 #article-card {
   @media screen and (min-width: $L) {
     width: 65%;
     margin: .5em auto;
   }
-}
 
-#article-controls {
-  margin: 1em;
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-
-  .btn-solid {
-    color: white;
-    background-color: $red;
-
-    &:hover {
-      background-color: $dark-red;
-    }
-  }
-
-  .btn-outline {
-    color: $red;
-    background-color: transparent;
-
-    &:hover {
-      background-color: $red;
-      color: white;
-    }
-  }
-}
-
-#articles-tag-cloud {
-  width: 75%;
-  margin: 1em auto 3em auto;
-  padding: 1em;
-  text-align: center;
-
-  @media screen and (min-width: $M) {
-    width: 50%;
-  }
-  @media screen and (min-width: $L) {
-    width: 35%;
-  }
-
-  a {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .tag1 { font-size: 1.0em }
-  .tag2 { font-size: 1.2em }
-  .tag3 { font-size: 1.4em }
-  .tag4 { font-size: 1.6em }
-}
-
-#article-card {
   #article-header {
     padding: .5em;
 
@@ -113,33 +173,6 @@
 
     p {
     }
-  }
-}
-
-.article-preview {
-  margin-bottom: 1em;
-
-  .article-actions {
-    text-align: right;
-  }
-
-  .article-title {
-    margin-bottom: 0;
-  }
-
-  .article-subtitle {
-    margin: 0 0 1em 0;
-    color: $grey-five;
-  }
-
-  .article-button {
-    text-align: center;
-  }
-
-  hr {
-    margin: 2em auto;
-    width: 75%;
-    color: $grey-two;
   }
 }
 

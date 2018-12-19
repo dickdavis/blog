@@ -3,14 +3,9 @@
     .text-left
       %a{ href: '#', id: 'nav-toggle' }
         = icon 'bars'
-      = link_to "#{@page[:'navbar-title']}", '', class: 'navbar-text'
+      %span.navbar-text= ENV['BLOG_NAME']
   #nav-menu
     %ul
-      %li
-        = form_tag(articles_path, method: 'get', class: 'form-inline', id: 'nav-search') do
-          = text_field_tag :search, params[:search], placeholder: 'Search articles...', class: 'form-control', id: 'nav-search-box'
-          = submit_tag 'Search', class: 'btn btn-solid'
-          %br
       %li
         = link_to 'About', { controller: '/welcome', action: 'about' }, class: 'nav-link'
       %li
