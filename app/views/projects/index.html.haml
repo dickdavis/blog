@@ -8,9 +8,7 @@
         %h2.card-title There are No Projects to Display
         %p.card-text Projects have not been uploaded yet; check back later.
 - else
-  #projects-container.flex-container
-    - project_columns = [[], [], [], []]
-    - index = 0
+  #projects-index-content.flex-container
     - @projects.each do |project|
       .card.flex-item
         .card-body

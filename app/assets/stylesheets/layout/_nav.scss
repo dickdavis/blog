@@ -1,4 +1,10 @@
 nav {
+  background-color: $grey-five;
+
+  @media screen and (min-width: $M) {
+    display: flex;
+  }
+
   #nav-header {
     width: 100%;
     background-color: $grey-five;
@@ -6,19 +12,28 @@ nav {
     padding: .5em 0;
 
     a {
-        font-size: 150%;
-        color: $grey-one;
-        padding: .5em;
-        text-decoration: none;
+      font-size: 150%;
+      color: $grey-one;
+      padding: .5em;
+      text-decoration: none;
+
+      @media screen and (min-width: $M) {
+        visibility: hidden;
+      }
 
       i {
         color: $red;
+
       }
     }
 
-    a.navbar-text {
+    span.navbar-text {
       color: $grey-one;
       font-size: 150%;
+    }
+
+    @media screen and (min-width: $M) {
+      flex: 30%;
     }
   }
 
@@ -31,46 +46,16 @@ nav {
     transform: translateX(-200%);
     transition: transform .6s ease;
 
-    @media screen and (min-width: $M) {
-      width: 75%;
-    }
-    @media screen and (min-width: $L) {
-      width: 50%;
-    }
-    @media screen and (min-width: $XL) {
-      width: 35%;
-    }
-
     ul {
       margin: 0;
       padding: 0;
       list-style-type: none;
 
       li {
-        form {
-          vertical-align: center;
-          display: flex;
-          padding: .5em;
-
-          input[type="text"] {
-              width: 75%;
-              margin: .1em;
-          }
-
-          input[type="submit"] {
-              width: 25%;
-              margin: .1em;
-          }
-        }
-
-        br {
-          clear: both;
-        }
-
         a {
+          display: block;
           padding-top: 1em;
           padding-bottom: 1em;
-          display: block;
           font-size: 125%;
           text-decoration: none;
           color: $grey-one;
@@ -90,6 +75,50 @@ nav {
       .active {
         color: $grey-one;
         background-color: $grey-one;
+      }
+    }
+
+    @media screen and (min-width: $M) {
+      position: relative;
+      flex: 70%;
+      align-self: center;
+      z-index: 9;
+      text-align: center;
+      background-color: $grey-five;
+      transform: none;
+      transition: none;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+          display: inline;
+
+          a {
+            display: inline;
+            padding: .5em 1em;
+            font-size: 125%;
+            text-decoration: none;
+            color: $grey-one;
+
+            &:hover {
+              color: $red;
+              background-color: $grey-five;
+            }
+
+            &:active {
+              color: $red;
+              background-color: $grey-one;
+            }
+          }
+        }
+
+        .active {
+          color: $grey-one;
+          background-color: $grey-one;
+        }
       }
     }
   }

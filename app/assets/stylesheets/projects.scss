@@ -1,8 +1,25 @@
 #project-controls {
 }
 
-#projects-container {
+#projects-index-content {
+  margin: 2em 1em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
   .card {
+    width: 100%;
+    height: auto;
+    margin: .5em;
+
+    @media screen and (min-width: $M) {
+      width: 45%;
+    }
+
+    @media screen and (min-width: $L) {
+      width: 30%;
+    }
+
     .card-body {
       height: 225px;
       overflow: hidden;
