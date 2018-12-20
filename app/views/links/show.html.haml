@@ -1,12 +1,11 @@
-- @page = { title: 'Show Link', 'navbar-title': 'Show Link' }
-.page
-  .card
-    .card-body
+%section#link-card.card
+  .card-body
+    .link-actions
       - if signed_in?
-        = link_to 'Back', links_path
+        = link_to 'Index', links_path
         \|
         = link_to 'Update', edit_link_path(@link)
         \|
         = link_to 'Delete', link_path(@link), method: :delete, data: { confirm: 'Are you sure?' }
-      %h2.text-muted= @link.created_at.strftime('%B %d, %Y')
-      %p= markdown(@link.message).html_safe
+    %h2.text-muted= @link.created_at.strftime('%B %d, %Y')
+    %p= markdown(@link.message).html_safe

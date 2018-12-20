@@ -26,9 +26,9 @@
   }
 
   .card-body-alt {
-    border-top: 1px solid $grey-four;
-    border-left: 1px solid $grey-four;
-    border-right: 1px solid $grey-four;
+    border-top: 1px solid $grey-two;
+    border-left: 1px solid $grey-two;
+    border-right: 1px solid $grey-two;
     border-radius: 5px 5px 0 0;
 
     a {
@@ -45,7 +45,7 @@
     background-color: $grey-one;
     margin: 0;
     padding: .5em;
-    border: 1px solid $grey-four;
+    border: 1px solid $grey-two;
     border-radius: 0 0 5px 5px;
     font-size: 85%;
     line-height: 1.5;

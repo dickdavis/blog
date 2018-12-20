@@ -1,9 +1,11 @@
-.card
-  .card-body-alt
+%section#project-card.card
+  .card-body
     - if signed_in?
-      = link_to 'Update', edit_project_path(@project)
-      = link_to 'Delete', project_path(@project), method: :delete, data: { confirm: 'Are you sure?' }
+      .project-actions
+        = link_to 'Index', projects_path
+        \|
+        = link_to 'Update', edit_project_path(@project)
+        \|
+        = link_to 'Delete', project_path(@project), method: :delete, data: { confirm: 'Are you sure?' }
     %h2.card-title= @project.title
     %p.card-text= markdown(@project.description).html_safe
-  .card-footer
-    = link_to 'Back', projects_path

@@ -12,25 +12,27 @@ class LinksController < ApplicationController
   ##
   # GET /links
   def index
-    @page = { title: 'Links', 'navbar-title': 'Links' }
+    @page_title = 'Links'
     @links = Link.all.order(created_at: :desc)
   end
 
   ##
-  # GET /links/1
-  def show; end
+  # GET /links/:link_id
+  def show
+    @page_title = 'View Link'
+  end
 
   ##
   # GET /links/new
   def new
-    @page = { title: 'Create Link', 'navbar-title': 'Create Link' }
+    @page_title = 'Create Link'
     @link = Link.new
   end
 
   ##
-  # GET /links/1/edit
+  # GET /links/:link_id/edit
   def edit
-    @page = { title: 'Edit Link', 'navbar-title': 'Edit Link' }
+    @page_title = 'Edit Link'
   end
 
   ##
@@ -47,7 +49,7 @@ class LinksController < ApplicationController
   end
 
   ##
-  # PATCH/PUT /links/1
+  # PATCH/PUT /links/:link_id
   def update
     if @link.update(link_params)
       flash[:type] = 'success'
@@ -59,7 +61,7 @@ class LinksController < ApplicationController
   end
 
   ##
-  # DELETE /links/1
+  # DELETE /links/:link_id
   def destroy
     @link.destroy
     flash[:type] = 'success'

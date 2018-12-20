@@ -1,13 +1,14 @@
 %article.card#article-card
   .card-body
+    - if signed_in?
+      .article-actions
+        = link_to 'Update', edit_article_path(@article)
+        \|
+        = link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }
     #article-header
       %h1.article-title= @article.title
       %h4.article-subtitle= @article.subtitle
     #article-body
-      - if signed_in?
-        = link_to 'Update', edit_article_path(@article)
-        \|
-        = link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }
       %p.text-muted= "Published: #{@article.created_at.strftime('%B %d, %Y')}"
       = markdown(@article.text).html_safe
       .tags
