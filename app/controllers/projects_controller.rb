@@ -11,27 +11,27 @@ class ProjectsController < ApplicationController
   ##
   # GET /projects
   def index
-    @page = { title: 'Projects', 'navbar-title': 'Projects' }
+    @page_title = 'Projects'
     @projects = Project.all
   end
 
   ##
-  # GET /projects/1
+  # GET /projects/:project_id
   def show
-    @page = { title: 'Show Project', 'navbar-title': 'Show Project' }
+    @page_title = @project.title
   end
 
   ##
   # GET /projects/new
   def new
-    @page = { title: 'Create Project', 'navbar-title': 'Create Project' }
+    @page_title = 'Create Project'
     @project = Project.new
   end
 
   ##
-  # GET /projects/1/edit
+  # GET /projects/:project_id/edit
   def edit
-    @page = { title: 'Edit Project', 'navbar-title': 'Edit Project' }
+    @page_title = 'Edit Project'
   end
 
   ##
@@ -49,7 +49,7 @@ class ProjectsController < ApplicationController
   end
 
   ##
-  # PATCH/PUT /projects/1
+  # PATCH/PUT /projects/:project_id
   def update
     if @project.update(project_params)
       flash[:type] = 'success'

@@ -11,9 +11,8 @@ class ArticlesController < ApplicationController
 
   ##
   # GET /articles
-  # GET /articles.json
   def index
-    @page = { title: 'Articles', 'navbar-title': 'Articles' }
+    @page_title = 'Articles'
     @articles = if params[:tag]
                   Article.tagged_with(params[:tag]).order(created_at: :desc)
                 elsif params[:search]
@@ -24,23 +23,22 @@ class ArticlesController < ApplicationController
   end
 
   ##
-  # GET /articles/1
-  # GET /articles/1.json
+  # GET /articles/:article_id
   def show
-    @page = { title: @article.title, 'navbar-title': 'View Article' }
+    @page_title = @article.title
   end
 
   ##
   # GET /articles/new
   def new
-    @page = { title: 'Create Article', 'navbar-title': 'Create Article' }
+    @page_title = 'Create Article'
     @article = Article.new
   end
 
   ##
-  # GET /articles/1/edit
+  # GET /articles/:article_id/edit
   def edit
-    @page = { title: 'Edit Article', 'navbar-title': 'Edit Article' }
+    @page_title = 'Edit Article'
   end
 
   ##
@@ -57,8 +55,7 @@ class ArticlesController < ApplicationController
   end
 
   ##
-  # PATCH/PUT /articles/1
-  # PATCH/PUT /articles/1.json
+  # PATCH/PUT /articles/:article_id
   def update
     if @article.update(article_params)
       flash[:type] = 'success'
@@ -70,8 +67,7 @@ class ArticlesController < ApplicationController
   end
 
   ##
-  # DELETE /articles/1
-  # DELETE /articles/1.json
+  # DELETE /articles/:article_id
   def destroy
     @article.destroy
     respond_to do |format|
@@ -83,6 +79,7 @@ class ArticlesController < ApplicationController
 
   private
 
+  ##
   # Use callbacks to share common setup or constraints between actions.
   def set_article
     @article = Article.find(params[:id])

@@ -8,5 +8,7 @@
 class WelcomeController < ApplicationController
   ##
   # GET /about
-  def about; end
+  def about
+    @page_title = 'About RV Davis'
+  end
 end

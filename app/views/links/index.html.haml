@@ -13,8 +13,9 @@
         - if signed_in? || link.published?
           .card-body
             - if signed_in?
-              = link_to 'Update', edit_link_path(link)
-              \|
-              = link_to 'Delete', link_path(link), method: :delete, data: { confirm: 'Are you sure?' }
+              .link-actions
+                = link_to 'Update', edit_link_path(link)
+                \|
+                = link_to 'Delete', link_path(link), method: :delete, data: { confirm: 'Are you sure?' }
             %h2.card-subtitle.text-muted= link.created_at.strftime('%B %d, %Y')
             %p.card-text= markdown(link.message).html_safe
