@@ -37,3 +37,17 @@
           = link_to 'Clear Tag Filter', articles_path, class: 'btn btn-outline'
       - tag_cloud Tag.counts, %w{tag1 tag2 tag3 tag4} do |tag, css_class|
         = link_to tag.name, tag_path(tag.name), class: css_class
+    #articles-recommended-links
+      %h3 Recommendations
+      %ul
+        %li= link_to 'Armed and Dangerous', 'https://esr.ibiblio.org/'
+        %li= link_to 'Coding Horror', 'https://blog.codinghorror.com/'
+        %li= link_to 'dev.to', 'https://dev.to/'
+        %li= link_to 'Hacker News', 'https://news.ycombinator.com/'
+        %li= link_to 'Krebs on Security', 'https://krebsonsecurity.com/'
+        %li= link_to 'LVMBDV', 'https://ata.gitlab.io/'
+        %li= link_to 'Riding Rails', 'https://weblog.rubyonrails.org/'
+        %li= link_to 'Schneier on Security', 'https://www.schneier.com/'
+        %li= link_to 'Stratechery', 'https://stratechery.com/'
+        %li= link_to 'The Morning Paper', 'https://blog.acolyer.org/'
+        %li= link_to 'The Coding Gnome', 'https://pragdave.me/'

@@ -1,7 +1,7 @@
 #articles-index-content {
   display: flex;
   flex-wrap: wrap;
-  margin: 1em;
+  margin: 2em 1em 0 1em;
 
   #article-controls {
     width: 100%;
@@ -28,30 +28,26 @@
   }
 
   #articles-sidebar {
-    flex: 30%;
-
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
     @media screen and (min-width: $M) {
+      width: 30%;
     }
 
     #articles-search {
       form {
         vertical-align: center;
         display: flex;
-        padding: .5em;
 
         input[type="text"] {
-          flex: 75%;
-          margin: .1em;
+          width: 65%;
         }
 
         input[type="submit"] {
-          flex: 20%;
-          margin: .1em;
+          width: 35%;
         }
-      }
-
-      br {
-        clear: both;
       }
     }
 
@@ -81,11 +77,18 @@
   }
 
   #articles-previews {
-    flex: 65%;
+    width: 100%;
+    @media screen and (min-width: $M) {
+      width: 70%;
+    }
 
     .article-preview {
-      width: 100%;
+      width: 80%;
+      margin: auto;
       margin-bottom: 1em;
+      @media screen and (min-width: $M) {
+        width: 90%;
+      }
 
       .article-actions {
         text-align: right;
