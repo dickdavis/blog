@@ -1,6 +1,27 @@
 #about-card {
+  margin: 2em auto 0 auto;
+
   @media screen and (min-width: $L) {
     width: 65%;
-    margin: .5em auto;
+  }
+
+  .card-body {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+    #about-headshot {
+      width: 40%;
+      margin: auto;
+
+      @media screen and (max-width: $M) {
+        width: 65%;
+      }
+    }
+
+    #about-bio {
+      flex: 40%;
+      margin: 1em;
+    }
   }
 }
