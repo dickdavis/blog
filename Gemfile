@@ -27,6 +27,8 @@ gem 'redcarpet', '~> 3.4'
 gem 'coderay', '~> 1.1', '>= 1.1.2'
 # Use clearance for authentication
 gem 'clearance', '~> 1.16', '>= 1.16.1'
+# Use friendly_id for Article titles
+gem 'friendly_id', '~> 5.2.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

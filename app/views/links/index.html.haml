@@ -9,8 +9,8 @@
         %p.card-text No links have been shared yet; check back later.
   - else
     - @links.each do |link|
-      .card
-        - if signed_in? || link.published?
+      - if signed_in? || link.published?
+        .card
           .card-body
             - if signed_in?
               .link-actions

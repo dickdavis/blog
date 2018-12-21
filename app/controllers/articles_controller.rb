@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
   ##
   # GET /articles/:article_id
   def show
+    head 404 unless @article.published?
     @page_title = @article.title
   end
 
@@ -70,11 +71,8 @@ class ArticlesController < ApplicationController
   # DELETE /articles/:article_id
   def destroy
     @article.destroy
-    respond_to do |format|
-      flash[:message] = 'Article was successfully destroyed.'
-      format.html { redirect_to articles_path }
-      format.json { head :no_content }
-    end
+    flash[:type] = 'success'
+    redirect_to articles_path, notice: 'Article was successfully destroyed.'
   end
 
   private
@@ -82,12 +80,12 @@ class ArticlesController < ApplicationController
   ##
   # Use callbacks to share common setup or constraints between actions.
   def set_article
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   ##
   # Never trust parameters from the scary internet, only allow the white list through.
   def article_params
-    params.require(:article).permit(:title, :text, :subtitle, :summary, :all_tags)
+    params.require(:article).permit(:title, :text, :subtitle, :summary, :published, :all_tags)
   end
 end

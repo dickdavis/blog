@@ -2,6 +2,8 @@
   .card-body
     - if signed_in?
       .article-actions
+        = link_to 'Index', articles_path
+        \|
         = link_to 'Update', edit_article_path(@article)
         \|
         = link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }

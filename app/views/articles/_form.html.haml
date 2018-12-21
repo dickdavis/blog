@@ -15,5 +15,8 @@
     .form-group
       =f.label :text
       ~f.text_area :text, class: 'form-control'
+    .form-group
+      =f.label :published
+      ~f.check_box :published, class: 'form-control'
     .form-action
       =f.submit 'Post', class: 'btn btn-solid'

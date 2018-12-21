@@ -21,3 +21,7 @@ RDoc::Task.new :rdoc do |rdoc|
   rdoc.rdoc_dir = 'docs/'
   rdoc.options << '--all'
 end
+
+task friendlify: :environment do
+  Article.find_each(&:save)
+end
