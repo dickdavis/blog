@@ -29,6 +29,8 @@ gem 'coderay', '~> 1.1', '>= 1.1.2'
 gem 'clearance', '~> 1.16', '>= 1.16.1'
 # Use friendly_id for Article titles
 gem 'friendly_id', '~> 5.2.4'
+# Use Kaminari for pagination
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

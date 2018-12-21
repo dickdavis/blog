@@ -14,11 +14,11 @@ class ArticlesController < ApplicationController
   def index
     @page_title = 'Articles'
     @articles = if params[:tag]
-                  Article.tagged_with(params[:tag]).order(created_at: :desc)
+                  Article.tagged_with(params[:tag]).page(params[:page]).per(5).order(created_at: :desc)
                 elsif params[:search]
-                  Article.search(params[:search]).order(created_at: :desc)
+                  Article.search(params[:search]).page(params[:page]).per(5).order(created_at: :desc)
                 else
-                  Article.all.order(created_at: :desc)
+                  Article.page(params[:page]).per(5).order(created_at: :desc)
                 end
   end
 
@@ -86,6 +86,6 @@ class ArticlesController < ApplicationController
   ##
   # Never trust parameters from the scary internet, only allow the white list through.
   def article_params
-    params.require(:article).permit(:title, :text, :subtitle, :summary, :published, :all_tags)
+    params.require(:article).permit(:title, :text, :subtitle, :summary, :published, :all_tags, :page)
   end
 end

@@ -19,3 +19,7 @@
                 = link_to 'Delete', link_path(link), method: :delete, data: { confirm: 'Are you sure?' }
             %h2.card-subtitle.text-muted= link.created_at.strftime('%B %d, %Y')
             %p.card-text= markdown(link.message).html_safe
+  #links-pagination
+    = paginate @links
+    %p
+      = page_entries_info @links

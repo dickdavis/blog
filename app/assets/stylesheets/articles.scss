@@ -27,57 +27,9 @@
     }
   }
 
-  #articles-sidebar {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2em;
-    @media screen and (min-width: $M) {
-      width: 30%;
-    }
-
-    #articles-search {
-      form {
-        vertical-align: center;
-        display: flex;
-
-        input[type="text"] {
-          width: 65%;
-        }
-
-        input[type="submit"] {
-          width: 35%;
-        }
-      }
-    }
-
-    #articles-tag-cloud {
-      width: 90%;
-      margin: auto;
-      padding: 1em;
-      text-align: center;
-
-      a {
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-
-      .controls {
-        .btn { text-decoration: none; }
-      }
-
-      .tag1 { font-size: 1.0em }
-      .tag2 { font-size: 1.2em }
-      .tag3 { font-size: 1.4em }
-      .tag4 { font-size: 1.6em }
-    }
-  }
-
   #articles-previews {
     width: 100%;
+
     @media screen and (min-width: $M) {
       width: 70%;
     }
@@ -86,6 +38,7 @@
       width: 100%;
       margin: auto;
       margin-bottom: 1em;
+
       @media screen and (min-width: $M) {
         width: 90%;
       }
@@ -109,11 +62,93 @@
         color: $grey-two;
       }
     }
+
+    #articles-pagination {
+      nav {
+        display: table;
+        background-color: transparent;
+        margin: 0 auto .5em auto;
+        text-align: center;
+
+        span {
+          margin: .5em;
+        }
+
+        span.current {
+          color: $grey-five;
+        }
+      }
+
+      p {
+        text-align: center;
+        color: $grey-five;
+      }
+    }
+  }
+
+  #articles-sidebar {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+
+    @media screen and (min-width: $M) {
+      width: 30%;
+    }
+
+    #articles-search {
+      form {
+        vertical-align: center;
+        display: flex;
+
+        input[type="text"] {
+          width: 65%;
+        }
+
+        input[type="submit"] {
+          width: 35%;
+        }
+      }
+
+      .controls {
+        margin-top: 0;
+        margin-bottom: .5em;
+      }
+    }
+
+    #articles-tag-cloud {
+      width: 90%;
+      margin: auto;
+      padding: 1em;
+      text-align: center;
+
+      a {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .controls {
+        margin-top: 0;
+        margin-bottom: .5em;
+
+        .btn { text-decoration: none; }
+      }
+
+      .tag1 { font-size: 1.0em }
+      .tag2 { font-size: 1.2em }
+      .tag3 { font-size: 1.4em }
+      .tag4 { font-size: 1.6em }
+    }
   }
 }
 
+
 #article-card {
   margin: 2em auto;
+
   @media screen and (min-width: $L) {
     width: 65%;
   }
