@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
   ##
   # GET /articles/:article_id
   def show
-    head 404 unless @article.published?
+    head 404 unless @article.published? || signed_in?
     @page_title = @article.title
   end
 
