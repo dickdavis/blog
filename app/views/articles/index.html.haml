@@ -11,18 +11,19 @@
             %p.card-text Try using a different search term, or you can click on one of the tags to explore related articles.
     - else
       - @articles.each do |article|
-        %article.article-preview.card
-          .card-body
-            - if signed_in?
-              .article-actions
-                = link_to 'Update', edit_article_path(article)
-                \|
-                = link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
-            %h2.article-title= link_to article.title, article_path(article)
-            %h4.article-subtitle= article.subtitle
-            %p.article-summary= article.summary
-            .tags
-              = raw tag_links article.all_tags
+        - if signed_in? || article.published?
+          %article.article-preview.card
+            .card-body
+              - if signed_in?
+                .article-actions
+                  = link_to 'Update', edit_article_path(article)
+                  \|
+                  = link_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }
+              %h2.article-title= link_to article.title, article_path(article)
+              %h4.article-subtitle= article.subtitle
+              %p.article-summary= article.summary
+              .tags
+                = raw tag_links article.all_tags
   %section#articles-sidebar
     #articles-search
       - if params[:search]
