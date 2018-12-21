@@ -13,7 +13,7 @@ class LinksController < ApplicationController
   # GET /links
   def index
     @page_title = 'Links'
-    @links = Link.all.order(created_at: :desc)
+    @links = Link.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   ##
@@ -79,6 +79,6 @@ class LinksController < ApplicationController
   ##
   # Never trust parameters from the scary internet, only allow the white list through.
   def link_params
-    params.require(:link).permit(:message, :published)
+    params.require(:link).permit(:message, :published, :page)
   end
 end

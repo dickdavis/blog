@@ -24,6 +24,10 @@
               %p.article-summary= article.summary
               .tags
                 = raw tag_links article.all_tags
+    #articles-pagination
+      = paginate @articles
+      %p
+        = page_entries_info @articles
   %section#articles-sidebar
     #articles-search
       - if params[:search]
