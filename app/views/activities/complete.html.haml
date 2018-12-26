@@ -1,0 +1,14 @@
+.card#activity-card
+  .card-body-alt
+    = form_for @activity do |f|
+      .form
+        .form-group
+          = f.label :hourglasses
+          = f.number_field :hourglasses, class: 'form-control'
+        .form-group
+          = f.label 'Completed?'
+          = f.check_box :completed, class: 'form-control'
+        .form-action
+          = f.submit 'Save', class: 'btn btn-solid'
+  .card-footer
+    = link_to 'Back', hourglass_path

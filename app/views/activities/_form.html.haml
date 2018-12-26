@@ -1,0 +1,16 @@
+= form_for @activity do |f|
+  .form
+    .form-group
+      = f.label :description
+      = f.text_field :description, class: 'form-control'
+    .form-group
+      = f.label :start_date
+      = f.date_field :start_date, class: 'form-control'
+    .form-group
+      = f.label :due_date
+      = f.date_field :due_date, class: 'form-control'
+    .form-group
+      = f.label 'Category'
+      = f.collection_select :activity_category_id, format_categories(ActivityCategory.all), :id, ->(activity_category){ activity_category.label }, class: 'form-control'
+    .form-action
+      = f.submit 'Save', class: 'btn btn-solid'

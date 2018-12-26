@@ -1,0 +1,207 @@
+#activities-current {
+  width: 97%;
+  margin-top: 2em;
+
+  @media screen and (min-width: $M) {
+    width: 75%;
+  }
+
+  .card-body {
+    padding-left: .2em;
+    padding-right: .2em;
+    overflow-x: auto;
+
+    h2 {
+      text-align: center;
+    }
+
+    .activities-controls {
+      text-align: right;
+      margin: 1em;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+
+      tr {
+        th {
+          color: $grey-five;
+
+          &:nth-child(1) {
+            width: 28%;
+          }
+
+          &:nth-child(2) {
+            width: 50%;
+          }
+        }
+
+        td {
+          text-align: center;
+          padding: .25em;
+
+          &:nth-child(1) {
+            width: 25%;
+          }
+
+          &:nth-child(2) {
+            width: 50%;
+            text-align: left;
+
+            a{
+              color: $grey-six;
+
+              &:hover {
+                color: $grey-five;
+              }
+            }
+          }
+
+          &:nth-child(3) {
+            a{
+              i {
+                color: $green;
+              }
+
+              &:hover {
+                i {
+                  color: $dark-green;
+                }
+              }
+            }
+          }
+
+          &:nth-child(4) {
+            a{
+              i {
+                color: $yellow;
+              }
+
+              &:hover {
+                i {
+                  color: $dark-yellow;
+                }
+              }
+            }
+          }
+
+          &:nth-child(5) {
+            a{
+              i {
+                color: $red;
+              }
+
+              &:hover {
+                i {
+                  color: $dark-red;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#activities-completed {
+  width: 97%;
+  margin-top: 2em;
+
+  @media screen and (min-width: $M) {
+    width: 75%;
+  }
+
+  .card-body {
+    padding-left: .1em;
+    padding-right: .1em;
+    overflow-x: auto;
+
+    h2 {
+      text-align: center;
+    }
+
+    .activities-controls {
+      text-align: right;
+      margin: 2em;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+
+      tr {
+        td {
+          text-align: center;
+          padding: .25em;
+
+          &:nth-child(1) {
+            width: 28%;
+            color: $grey-five;
+          }
+
+          &:nth-child(2) {
+            width: 50%;
+            text-align: left;
+
+            a{
+              color: $grey-six;
+
+              &:hover {
+                color: $grey-five;
+              }
+            }
+          }
+
+          &:nth-child(3) {
+            a{
+              i {
+                color: $blue;
+              }
+
+              &:hover {
+                i {
+                  color: $dark-blue;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#activities-insights {
+  width: 97%;
+  margin-top: 2em;
+
+  @media screen and (min-width: $M) {
+    width: 75%;
+  }
+
+  .card-body {
+    padding-left: .2em;
+    padding-right: .2em;
+    overflow-x: auto;
+
+    h2 {
+      text-align: center;
+    }
+
+    h3 {
+      margin: 1em;
+    }
+  }
+}
+
+#activity-card {
+  margin-top: 2em;
+}
