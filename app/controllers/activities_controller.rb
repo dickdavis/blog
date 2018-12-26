@@ -1,4 +1,12 @@
+##
+# = ActivitiesController
+# Author::    RV Davis
+# Copyright:: Copyright 2017 RV Davis
+# License::   GNU Public License 3
+#
+# This controller provides methods to access activity resources
 class ActivitiesController < ApplicationController
+  before_action :require_login, only: %i[show new edit complete export create update revert destroy]
   before_action :set_activity, only: %i[show edit complete update revert destroy]
 
   ##
