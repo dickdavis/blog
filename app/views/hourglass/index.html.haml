@@ -1,0 +1,51 @@
+.card#activities-current
+  .card-body
+    .activities-controls
+      = link_to 'New Activity', new_activity_path
+      \|
+      = link_to 'Manage Categories', activity_categories_path
+    %h2 Current
+    - if @current_activities.count == 0
+      %p There are no current activities to display.
+    - else
+      %table
+        %tr
+          %th Due
+          %th
+          %th
+          %th
+          %th
+        - @current_activities.each do |activity|
+          %tr
+            %td= activity.due_date
+            %td= link_to activity.description, activity_path(activity)
+            %td= link_to(complete_activity_path(activity)){ icon 'check' }
+            %td= link_to(edit_activity_path(activity)){ icon 'pencil' }
+            %td= link_to(activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' }){ icon 'trash' }
+.card#activities-completed
+  .card-body
+    .activities-controls
+      = link_to 'Export', export_activities_path, target: :blank
+    %h2 Completed
+    - if @completed_activities.count == 0
+      %p There are no completed activities to display.
+    - else
+      %table
+        - @completed_activities.each do |activity|
+          %tr
+            %td
+              - activity.hourglasses.times do
+                = icon 'hourglass'
+            %td= link_to activity.description, activity_path(activity)
+            %td= link_to(revert_activity_path(activity), method: :post){ icon 'undo' }
+.card#activities-insights
+  .card-body
+    %h2 Insights
+    %h3 Activities Completed By Day of Week
+    = column_chart Activity.where(completed: true).group_by_day_of_week(:completion_date, time_zone: false, format: '%a').count, ytitle: 'Activities'
+    %h3 Activities Completed Each Day
+    = line_chart Activity.where(completed: true).group_by_day(:completion_date, time_zone: false, format: '%b %d').count, xtitle: 'Days', ytitle: 'Activities'
+    %h3 Activities Aggregated by Hourglasses
+    = bar_chart Activity.where(completed: true).group(:hourglasses).count, xtitle: 'Activities', ytitle: 'Hourglasses'
+    %h3 Activities by Category
+    = pie_chart Activity.where(completed: true).group(:activity_category_id).count.map{|k,v| [ActivityCategory.labels[k], v] }.to_h

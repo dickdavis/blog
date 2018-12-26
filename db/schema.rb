@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_21_035206) do
+ActiveRecord::Schema.define(version: 2018_12_22_153316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "description"
+    t.boolean "completed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "hourglasses"
+    t.date "start_date"
+    t.date "due_date"
+    t.date "completion_date"
+    t.bigint "activity_category_id"
+    t.index ["activity_category_id"], name: "index_activities_on_activity_category_id"
+  end
+
+  create_table "activity_categories", force: :cascade do |t|
+    t.string "label"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "articles", id: :serial, force: :cascade do |t|
     t.string "title"
@@ -79,6 +99,7 @@ ActiveRecord::Schema.define(version: 2018_12_21_035206) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "activities", "activity_categories"
   add_foreign_key "taggings", "articles"
   add_foreign_key "taggings", "tags"
 end

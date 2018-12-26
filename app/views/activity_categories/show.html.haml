@@ -1,0 +1,8 @@
+.card
+  .card-body
+    .controls
+      = link_to 'Edit', edit_activity_category_path(@activity_category)
+      \|
+      = link_to 'Back', activity_categories_path
+    %h3= @activity_category.label
+    %p= @activity_category.description

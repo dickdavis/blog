@@ -31,6 +31,10 @@ gem 'clearance', '~> 1.16', '>= 1.16.1'
 gem 'friendly_id', '~> 5.2.4'
 # Use Kaminari for pagination
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
+# Use ChartKick for charting activities
+gem 'chartkick', '~> 3.0', '>= 3.0.1'
+# Use Groupdate to group chart data by dates
+gem 'groupdate', '~> 4.1', '>= 4.1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

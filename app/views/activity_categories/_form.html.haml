@@ -1,0 +1,10 @@
+= form_for @activity_category do |f|
+  .form
+    .form-group
+      = f.label :label
+      = f.text_field :label, class: 'form-control'
+    .form-group
+      = f.label :description
+      = f.text_field :description, class: 'form-control'
+    .form-action
+      = f.submit 'Save', class: 'btn btn-solid'

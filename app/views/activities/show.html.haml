@@ -1,0 +1,26 @@
+.card#activity-card
+  .card-body-alt
+    %h2.text-center= @activity.description
+    %p.text-muted
+      - if @activity.completed?
+        = "Completed on #{@activity.completion_date}"
+      - else
+        Not yet completed
+    %p
+      %span.text-muted Category:
+      = @activity.activity_category.label
+    %p
+      %span.text-muted Start:
+      = @activity.start_date
+    %p
+      %span.text-muted Due:
+      = @activity.due_date
+    %p
+      %span.text-muted Hourglasses:
+      - if @activity.hourglasses.nil?
+        No hourglasses recorded yet.
+      - else
+        - @activity.hourglasses.times do
+          = icon 'hourglass'
+  .card-footer
+    = link_to 'Back', hourglass_path
