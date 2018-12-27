@@ -42,9 +42,9 @@
   .card-body
     %h2 Insights
     %h3 Activities Completed By Day of Week
-    = column_chart Activity.where(completed: true).group_by_day_of_week(:completion_date, time_zone: false, format: '%a').count, ytitle: 'Activities'
+    = column_chart Activity.where(completed: true).group_by_day_of_week(:completion_date, time_zone: 'Central Time (US & Canada)', format: '%a').count, ytitle: 'Activities'
     %h3 Activities Completed Each Day
-    = line_chart Activity.where(completed: true).group_by_day(:completion_date, time_zone: false, format: '%b %d').count, xtitle: 'Days', ytitle: 'Activities'
+    = line_chart Activity.where(completed: true).group_by_day(:completion_date, time_zone: 'Central Time (US & Canada)', format: '%b %d').count, xtitle: 'Days', ytitle: 'Activities'
     %h3 Activities Aggregated by Hourglasses
     = bar_chart Activity.where(completed: true).group(:hourglasses).count, xtitle: 'Activities', ytitle: 'Hourglasses'
     %h3 Activities by Category
