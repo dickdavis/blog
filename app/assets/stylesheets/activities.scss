@@ -7,8 +7,8 @@
   }
 
   .card-body {
-    padding-left: .2em;
-    padding-right: .2em;
+    padding-left: .5em;
+    padding-right: .5em;
     overflow-x: auto;
 
     h2 {
@@ -24,84 +24,91 @@
       text-align: center;
     }
 
-    table {
-      width: 100%;
+    .activity-current {
+      max-width: 600px;
+      margin: 0 auto .5em auto;
+      border: 1px solid $grey-one;
+      border-radius: 5px;
 
-      tr {
-        th {
-          color: $grey-five;
+      .activity-current-header {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        padding: .5em;
 
-          &:nth-child(1) {
-            width: 28%;
-          }
+        .activity-due-date {
+          flex: 50%;
 
-          &:nth-child(2) {
-            width: 50%;
+          p {
+            margin: 0;
+            text-align: left;
+
+            span.activity-late {
+              color: $red;
+            }
+
+            span.activity-urgent {
+              color: $yellow;
+            }
           }
         }
 
-        td {
-          text-align: center;
-          padding: .25em;
+        .activity-current-controls {
+          flex: 50%;
+          text-align: right;
 
-          &:nth-child(1) {
-            width: 25%;
-          }
+          a.activity-mark-complete {
+            padding: .25em;
 
-          &:nth-child(2) {
-            width: 50%;
-            text-align: left;
-
-            a{
-              color: $grey-six;
-
-              &:hover {
-                color: $grey-five;
-              }
+            i {
+              color: $green;
             }
-          }
 
-          &:nth-child(3) {
-            a{
+            &:hover {
               i {
-                color: $green;
-              }
-
-              &:hover {
-                i {
-                  color: $dark-green;
-                }
+                color: $dark-green;
               }
             }
           }
 
-          &:nth-child(4) {
-            a{
+          a.activity-edit {
+            padding: .25em;
+
+            i {
+              color: $yellow;
+            }
+
+            &:hover {
               i {
-                color: $yellow;
-              }
-
-              &:hover {
-                i {
-                  color: $dark-yellow;
-                }
+                color: $dark-yellow;
               }
             }
           }
 
-          &:nth-child(5) {
-            a{
+          a.activity-delete {
+            padding: .25em;
+
+            i {
+              color: $red;
+            }
+
+            &:hover {
               i {
-                color: $red;
-              }
-
-              &:hover {
-                i {
-                  color: $dark-red;
-                }
+                color: $dark-red;
               }
             }
           }
+        }
+      }
+    }
+
+    .activity-current-body {
+      text-align: center;
+      p {
+        margin-top: .5em;
+
+        a {
+          color: $grey-six;
         }
       }
     }
@@ -117,8 +124,8 @@
   }
 
   .card-body {
-    padding-left: .1em;
-    padding-right: .1em;
+    padding-left: .5em;
+    padding-right: .5em;
     overflow-x: auto;
 
     h2 {
@@ -127,52 +134,59 @@
 
     .activities-controls {
       text-align: right;
-      margin: 2em;
+      margin: 1em;
     }
 
     p {
       text-align: center;
     }
 
-    table {
-      width: 100%;
+    .activity-complete {
+      max-width: 600px;
+      margin: 0 auto .5em auto;
+      border: 1px solid $grey-one;
+      border-radius: 5px;
 
-      tr {
-        td {
-          text-align: center;
-          padding: .25em;
+      .activity-complete-header {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        padding: .5em;
 
-          &:nth-child(1) {
-            width: 28%;
-            color: $grey-five;
-          }
+        .activity-hourglasses {
+          flex: 50%;
+          text-align: left;
+          color: $grey-five;
+        }
 
-          &:nth-child(2) {
-            width: 50%;
-            text-align: left;
+        .activity-complete-controls {
+          flex: 50%;
+          text-align: right;
 
-            a{
-              color: $grey-six;
+          a.activity-undo {
+            padding: .25em;
 
-              &:hover {
-                color: $grey-five;
-              }
+            i {
+              color: $blue;
             }
-          }
 
-          &:nth-child(3) {
-            a{
+            &:hover {
               i {
-                color: $blue;
-              }
-
-              &:hover {
-                i {
-                  color: $dark-blue;
-                }
+                color: $dark-blue;
               }
             }
           }
+        }
+      }
+    }
+
+    .activity-complete-body {
+      text-align: center;
+      p {
+        margin-top: .5em;
+
+        a {
+          color: $grey-six;
         }
       }
     }

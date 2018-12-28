@@ -1,15 +1,18 @@
-.card#activity-category-card
+.card#activity-categories-card
   .card-body-alt
-    .controls
+    .activity-categories-controls
       = link_to 'New Category', new_activity_category_path
     %h2.text-center Categories
-    %table
-      - @activity_categories.each do |activity_category|
-        %tr
-          %td= activity_category.label
-          %td= activity_category.description
-          %td= link_to(activity_category){ icon 'search' }
-          %td= link_to(edit_activity_category_path(activity_category)){ icon 'pencil' }
-          %td= link_to(activity_category, method: :delete, data: { confirm: 'Are you sure?' }){ icon 'trash' }
+    - @activity_categories.each do |activity_category|
+      .activity-category-item
+        .activity-category-item-header
+          .activity-category-item-label
+            = activity_category.label
+          .activity-category-item-controls
+            = link_to(activity_category, class: 'activity-category-show'){ icon 'search' }
+            = link_to(edit_activity_category_path(activity_category), class: 'activity-category-edit'){ icon 'pencil' }
+            = link_to(activity_category, class: 'activity-category-delete', method: :delete, data: { confirm: 'Are you sure?' }){ icon 'trash' }
+        .activity-category-item-body
+          = activity_category.description
   .card-footer
     = link_to 'Back', hourglass_path

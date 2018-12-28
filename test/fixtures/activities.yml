@@ -4,8 +4,10 @@ one:
   description: MyString
   completed: false
   activity_category: one
+  due_date: <%= 5.day.ago.to_s(:db) %>
 
 two:
   description: MyString
   completed: false
   activity_category: two
+  due_date: <%= 5.day.ago.to_s(:db) %>

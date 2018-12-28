@@ -1,3 +1,111 @@
 // Place all the styles related to the ActivityCategories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#activity-categories-card {
+  width: 97%;
+  margin-top: 2em;
+
+  @media screen and (min-width: $M) {
+    width: 75%;
+  }
+
+  .card-body-alt {
+    padding-left: .2em;
+    padding-right: .2em;
+    overflow-x: auto;
+
+    h2 {
+      text-align: center;
+    }
+
+    .activity-categories-controls {
+      text-align: right;
+      margin: 1em;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .activity-category-item {
+      max-width: 600px;
+      margin: 0 auto .5em auto;
+      border: 1px solid $grey-one;
+      border-radius: 5px;
+
+      .activity-category-item-header {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        padding: .5em;
+
+        .activity-category-item-label {
+          flex: 50%;
+          text-align: left;
+          color: $grey-five;
+        }
+
+        .activity-category-item-controls {
+          flex: 50%;
+          text-align: right;
+
+          a.activity-category-show {
+            padding: .25em;
+
+            i {
+              color: $blue;
+            }
+
+            &:hover {
+              i {
+                color: $dark-blue;
+              }
+            }
+          }
+
+          a.activity-category-edit {
+            padding: .25em;
+
+            i {
+              color: $yellow;
+            }
+
+            &:hover {
+              i {
+                color: $dark-yellow;
+              }
+            }
+          }
+
+          a.activity-category-delete {
+            padding: .25em;
+
+            i {
+              color: $red;
+            }
+
+            &:hover {
+              i {
+                color: $dark-red;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .activity-category-item-body {
+      text-align: center;
+      p {
+        margin-top: .5em;
+
+        a {
+          color: $grey-six;
+        }
+      }
+    }
+  }
+}
+
+
