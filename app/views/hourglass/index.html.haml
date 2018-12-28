@@ -2,26 +2,30 @@
   .card-body
     .activities-controls
       = link_to 'New Activity', new_activity_path
-      \|
+      %br
       = link_to 'Manage Categories', activity_categories_path
     %h2 Current
     - if @current_activities.count == 0
       %p There are no current activities to display.
     - else
-      %table
-        %tr
-          %th Due
-          %th
-          %th
-          %th
-          %th
-        - @current_activities.each do |activity|
-          %tr
-            %td= activity.due_date
-            %td= link_to activity.description, activity_path(activity)
-            %td= link_to(complete_activity_path(activity)){ icon 'check' }
-            %td= link_to(edit_activity_path(activity)){ icon 'pencil' }
-            %td= link_to(activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' }){ icon 'trash' }
+      - @current_activities.each do |activity|
+        .activity-current
+          .activity-current-header
+            .activity-due-date
+              %p
+                %span.text-muted Due:
+                - if activity.due_date < Date.today
+                  %span.activity-late= activity.due_date
+                - elsif activity.due_date - Date.today < 2
+                  %span.activity-urgent= activity.due_date
+                - else
+                  %span.activity-ontime= activity.due_date
+            .activity-current-controls
+              = link_to(complete_activity_path(activity), class: 'activity-mark-complete'){ icon 'check' }
+              = link_to(edit_activity_path(activity), class: 'activity-edit'){ icon 'pencil' }
+              = link_to(activity_path(activity), class: 'activity-delete', method: :delete, data: { confirm: 'Are you sure?' }){ icon 'trash' }
+          .activity-current-body
+            %p= link_to activity.description, activity_path(activity)
 .card#activities-completed
   .card-body
     .activities-controls
@@ -32,17 +36,21 @@
     - else
       %table
         - @completed_activities.each do |activity|
-          %tr
-            %td
-              - activity.hourglasses.times do
-                = icon 'hourglass'
-            %td= link_to activity.description, activity_path(activity)
-            %td= link_to(revert_activity_path(activity), method: :post){ icon 'undo' }
+          .activity-complete
+            .activity-complete-header
+              .activity-hourglasses
+                - activity.hourglasses.times do
+                  = icon 'hourglass'
+              .activity-complete-controls
+                = link_to(revert_activity_path(activity), class: 'activity-undo', method: :post){ icon 'undo' }
+            .activity-complete-body
+              %p= link_to activity.description, activity_path(activity)
 .card#activities-insights
   .card-body
     %h2 Insights
     %h3 Activities Completed By Day of Week
     = column_chart Activity.where(completed: true).group_by_day_of_week(:completion_date, time_zone: 'Central Time (US & Canada)', format: '%a').count, ytitle: 'Activities'
+    //=column_chart({ 'Monday': 1, 'Tuesday': 2, 'Wednesday': 4, 'Thursday': 2, 'Friday': 5, 'Saturday': 10, 'Sunday': 4 })
     %h3 Activities Completed Each Day
     = line_chart Activity.where(completed: true).group_by_day(:completion_date, time_zone: 'Central Time (US & Canada)', format: '%b %d').count, xtitle: 'Days', ytitle: 'Activities'
     %h3 Activities Aggregated by Hourglasses
