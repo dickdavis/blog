@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   # Routes for activities.
   resources :activity_categories
   resources :activities do
+    get 'page/:page', action: :index, on: :collection
     member do
       get 'complete'
       post 'revert'

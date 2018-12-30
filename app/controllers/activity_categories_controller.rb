@@ -12,6 +12,7 @@ class ActivityCategoriesController < ApplicationController
   ##
   # GET /activity_categories
   def index
+    @page_title = 'Activity Categories'
     @activity_categories = ActivityCategory.all
   end
 

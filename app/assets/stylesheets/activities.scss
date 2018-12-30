@@ -190,6 +190,28 @@
         }
       }
     }
+
+    #activities-pagination {
+      nav {
+        display: table;
+        background-color: transparent;
+        margin: 0 auto .5em auto;
+        text-align: center;
+
+        span {
+          margin: .5em;
+        }
+
+        span.current {
+          color: $grey-five;
+        }
+      }
+
+      p {
+        text-align: center;
+        color: $grey-five;
+      }
+    }
   }
 }
 
