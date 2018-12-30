@@ -45,6 +45,10 @@
                 = link_to(revert_activity_path(activity), class: 'activity-undo', method: :post){ icon 'undo' }
             .activity-complete-body
               %p= link_to activity.description, activity_path(activity)
+    #activities-pagination
+      = paginate @completed_activities
+      %p
+        = page_entries_info @completed_activities
 .card#activities-insights
   .card-body
     %h2 Insights
@@ -53,7 +57,5 @@
     //=column_chart({ 'Monday': 1, 'Tuesday': 2, 'Wednesday': 4, 'Thursday': 2, 'Friday': 5, 'Saturday': 10, 'Sunday': 4 })
     %h3 Activities Completed Each Day
     = line_chart Activity.where(completed: true).group_by_day(:completion_date, time_zone: 'Central Time (US & Canada)', format: '%b %d').count, xtitle: 'Days', ytitle: 'Activities'
-    %h3 Activities Aggregated by Hourglasses
-    = bar_chart Activity.where(completed: true).group(:hourglasses).count, xtitle: 'Activities', ytitle: 'Hourglasses'
     %h3 Activities by Category
     = pie_chart Activity.where(completed: true).group(:activity_category_id).count.map{|k,v| [ActivityCategory.labels[k], v] }.to_h
