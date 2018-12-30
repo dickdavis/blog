@@ -97,6 +97,8 @@
 
     .activity-category-item-body {
       text-align: center;
+      padding: .5em;
+
       p {
         margin-top: .5em;
 
@@ -108,4 +110,6 @@
   }
 }
 
-
+#activity-category-card {
+  margin-top: 2em;
+}

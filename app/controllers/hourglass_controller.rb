@@ -13,6 +13,6 @@ class HourglassController < ApplicationController
   def index
     @page_title = 'Hourglass Dashboard'
     @current_activities = Activity.where(completed: [false, nil]).order(due_date: :asc)
-    @completed_activities = Activity.where(completed: true).order(completion_date: :desc)
+    @completed_activities = Activity.where(completed: true).page(params[:page]).per(10).order(completion_date: :desc)
   end
 end
